@@ -1,0 +1,42 @@
+CRITICAL - 2025-04-18 01:57:35 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "nueva_plantilla.php"
+[Method: GET, Route: /]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('nueva_plantilla.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('nueva_plantilla', [], true)
+ 3 APPPATH\Controllers\Home.php(9): view('nueva_plantilla')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-04-18 15:32:31 --> ErrorException: include(app/Views/Principal.html): Failed to open stream: No such file or directory
+[Method: GET, Route: /]
+in APPPATH\Views\nueva_plantilla.php on line 110.
+ 1 APPPATH\Views\nueva_plantilla.php(110): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(app/Views/Principal.html): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\proyecto_x_ingrid\\app\\Views\\nueva_plantilla.php', 110)
+ 2 APPPATH\Views\nueva_plantilla.php(110): include()
+ 3 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\proyecto_x_ingrid\\app\\Views\\nueva_plantilla.php')
+ 4 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('nueva_plantilla', [], true)
+ 6 APPPATH\Controllers\Home.php(9): view('nueva_plantilla')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-04-18 16:05:46 --> ErrorException: include(app/Views/Principal.html): Failed to open stream: No such file or directory
+[Method: GET, Route: /]
+in APPPATH\Views\nueva_plantilla.php on line 110.
+ 1 APPPATH\Views\nueva_plantilla.php(110): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(app/Views/Principal.html): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\proyecto_x_ingrid\\app\\Views\\nueva_plantilla.php', 110)
+ 2 APPPATH\Views\nueva_plantilla.php(110): include()
+ 3 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\proyecto_x_ingrid\\app\\Views\\nueva_plantilla.php')
+ 4 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('nueva_plantilla', [], true)
+ 6 APPPATH\Controllers\Home.php(9): view('nueva_plantilla')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
