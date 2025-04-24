@@ -1,20 +1,11 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/proyecto_x_ingrid/public/css/Miestilo.css">
-</head>
-<body>
-    <header>
-          <!-- Barra de Navegación con logo -->
+<header>
+  <!-- Barra de Navegación con logo -->
   <nav class="navbar navbar-expand-lg border-bottom border-body" style="background-color: #111827;" data-bs-theme="dark">
     <div class="container-fluid">
-
       <a class="navbar-brand" href="#">
         <img src="/proyecto_x_ingrid/public/img/logonav.png" alt="Deliburger Logo" width="70" height="70">
       </a>
-      <a class="navbar-brand" >Deliburger</a>
+      <a class="navbar-brand">Deliburger</a>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,4 +41,4 @@
       </div>
     </div>
   </nav>
-    </header>
+</header>

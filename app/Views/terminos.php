@@ -18,8 +18,8 @@
 <!-- HEADER -->
 <?= $this->include('templates/header') ?>
 
-  <main class="terminos-container">
-  <img src="/proyecto_x_ingrid/public/img/TerminosyCondiciones.png"  alt="TerminosyCondiciones">
+  <main>
+  <img src="/proyecto_x_ingrid/public/img/TerminosyCondiciones.png"  alt="TerminosyCondiciones" class="img">
     
 <section>
     <h2>Última actualización: 23 de Abril de 2025.</h2>
