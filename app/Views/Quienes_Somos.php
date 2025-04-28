@@ -34,10 +34,10 @@
     </section>
     <section class="col-md-6">
       <div class="card">
-        <img src="tu-foto.jpg" class="card-img-top" alt="Saucedo Germán">
+        <img src="/proyecto_x_ingrid/public/img/yoo.jpg" class="card-img-top" alt="Saucedo Germán">
         <div class="card-body">
           <h5 class="card-title">Saucedo, Germán</h5>
-          <p class="card-text">"Estudiante de Sistemas. Apasionado por la programación y los videojuegos."</p>
+          <p class="card-text">"Estudiante de Sistemas. Programador web"</p>
         </div>
       </div>
     </section>

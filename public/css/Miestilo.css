@@ -15,14 +15,14 @@
       }
       /*Body página principal*/
       body {
-        background-color: #e4d1dd;
-        color: rgba(245, 245, 245, 0.879); 
+        background-color: #ffffff;
+        color: rgba(255, 255, 255, 0.879); 
         font-family: 'Trebuchet MS', sans-serif;
         text-shadow: 0 0 4px #96a3a7, 0 0 10px #c3d2d6; /* efecto neón */
       }
       /*Body de las rutas*/
       .routes-body {
-        background-color: #e4d1dd;
+        background-color: #ffffff;
         color: #000 ;
         text-align: center;
     }
@@ -44,6 +44,12 @@
     object-fit: cover;
   }
   
+  /*Ajuste para imágenes del carrusel de Inicio*/
+  .carousel-inner img {
+    width: 100%;
+    height: 500px; 
+    object-fit: cover;
+  }
   
 /* Productos */
 .producto-card {
@@ -156,7 +162,7 @@
 
   .mi-bloque {
     background-color: #000;
-    color: #fff;
+    color: hsl(0, 0%, 100%);
     padding: 20px;
     border-radius: 8px;
     font-style: italic;
@@ -167,7 +173,7 @@
 
   .deliburger-section {
     background-color: #1C1C1C;
-    color: #e0e0e0;
+    color: #ffffff;
     font-style: italic;
     padding: 40px 30px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
