@@ -16,7 +16,7 @@
 
 <body>
 <?= $this->include('templates/header') ?>
-<img src="/proyecto_x_ingrid/public/img/Locales.png" alt="Locales">
+<img src="/proyecto_x_ingrid/public/img/Locales.png" alt="Locales" class="img">
 <div class="container py-5">
     <h1 class="text-center mb-4">🏪 Nuestros Locales</h1>
 

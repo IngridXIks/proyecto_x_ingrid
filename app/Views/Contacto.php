@@ -25,7 +25,7 @@
   <p>¿Tienes alguna pregunta o comentario? ¡Estamos aquí para ayudarte!</p>
   
   <div class="info-contacto">
-    <p><strong>📍 Dirección:</strong> Av. Raul Alfonsin 4879, Corrientes Capital, Argentina</p>
+    <p><strong>📍 Dirección:</strong> Junín 456, Corrientes Capital, Argentina</p>
     <p><strong>📞 Teléfono:</strong> +54 11 3795 456711</p>
     <p><strong>✉️ Correo electrónico:</strong> contacto@deliburger.com</p>
   </div>

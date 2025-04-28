@@ -16,7 +16,7 @@
 
 <body>
 <?= $this->include('templates/header') ?>
-<img src="/proyecto_x_ingrid/public/img/Promociones.png" alt="Promos">
+<img src="/proyecto_x_ingrid/public/img/Promociones.png" alt="Promos" class="img">
     <div class="bg-warning text-white text-center py-5">
         <p class="lead">🔥¡Ofertas irresistibles solo por tiempo limitado!🔥</p>
     </div>
