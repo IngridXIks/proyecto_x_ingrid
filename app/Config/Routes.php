@@ -16,3 +16,4 @@ $routes->get('locales', 'Locales::locales');
 $routes->get('hamburguesas', 'Hamburguesas::hamburguesas');
 $routes->get('combos', 'Combos::combos');
 $routes->get('bebidas', 'Bebidas_postres::bebidas_postres');
+$routes->get('buscar', 'BuscarController::index');
