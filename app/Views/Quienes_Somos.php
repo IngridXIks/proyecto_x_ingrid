@@ -18,8 +18,8 @@
 <!-- HEADER -->
 <?= $this->include('templates/header') ?>
 
+<img src="/proyecto_x_ingrid/public/img/QuienesSomos.png" alt="Quiénes Somos" class="img">
   <main>
-    <img src="/proyecto_x_ingrid/public/img/QuienesSomos.png" alt="Quiénes Somos" class="img">
 
     <section class="container mt-5">
   <section class="row text-center">

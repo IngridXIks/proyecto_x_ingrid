@@ -21,7 +21,7 @@
     <h1>Resultados para: "<?= esc($term ?? '') ?>"</h1>
     
     <?php if (empty($results)): ?>
-        <p>SOLO SIRVE COMO MODELO DE BUSQUEDA, NO TENEMOS BASE DE DATOS</p>
+        <p>Próximamente...</p>
     <?php else: ?>
         <div class="row">
             <?php foreach ($results as $item): ?>

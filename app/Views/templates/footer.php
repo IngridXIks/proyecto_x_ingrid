@@ -6,17 +6,6 @@
         <section class="footer-logo">
             <img src="/proyecto_x_ingrid/public/img/logo.png" alt="Logo de la empresa">
         </section>
-
-        <!-- Enlaces -->
-        <section class="footer-links">
-            <ul>
-                <li><a href="<?= base_url('terminos') ?>">Términos y Condiciones</a></li>
-                <li><a href="<?= base_url('Privacidad') ?>">Política de Privacidad</a></li>
-                <li><a href="<?= base_url('Contacto') ?>">Información de contacto</a></li>
-                <li><a href="<?= base_url('Quienes_Somos') ?>">Quiénes Somos</a></li>
-                <li><a href="<?= base_url('comercializacion') ?>">Comercialización</a></li>
-            </ul>
-        </section>
     </div>
 
     <!-- Redes sociales -->

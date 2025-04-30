@@ -18,7 +18,7 @@
         background-color: #ffffff;
         color: rgba(255, 255, 255, 0.879); 
         font-family: 'Trebuchet MS', sans-serif;
-        text-shadow: 0 0 4px #96a3a7, 0 0 10px #c3d2d6; /* efecto neón */
+      
       }
       /*Body de las rutas*/
       .routes-body {
@@ -72,8 +72,8 @@
 /*Estilo de pie de página*/
 
 .footer {
-  background-color: #111827; /* Fondo oscuro estilo moderno */
-  color: #fff;
+  background-color: #111827; 
+  color: #ffffff;
   padding: 40px 20px;
   font-family: 'Segoe UI', sans-serif;
 }
@@ -87,9 +87,20 @@
   gap: 40px;
 }
 
-.footer-logo img {
-  max-width: 120px;
+.footer-logo {
+  display: flex;
+  justify-content: center; 
+  align-items: center;    
+  height: 150px;        
+  width: 100%;             
 }
+
+.footer-logo img {
+  max-width: 120px;       
+  height: auto;            
+  display: block;          
+}
+
 
 .footer-links ul {
   list-style: none;
@@ -119,6 +130,7 @@
 .footer-social p {
   margin-bottom: 10px;
   font-weight: bold;
+  color: #ccc;
 }
 
 .social-icons a {
@@ -132,11 +144,11 @@
   color: #fff;
 }
 
-.footer-copy {
+.footer-copy p {
   text-align: center;
   margin-top: 30px;
   font-size: 14px;
-  color: #888;
+  color: #ccc;
 }
 
 /* RESPONSIVE */
@@ -333,4 +345,32 @@ h5.card-title {
 
 .comercializacion li strong {
   color: #c0392b;
+}
+/*Texto justificado para main*/
+main {
+  max-width: 800px;
+  margin: 0 auto; 
+  padding: 20px;
+}
+
+main p {
+  text-align: justify;
+}
+
+main h2 {
+  text-align: center; 
+  margin-top: 30px;
+}
+/*Aviso de Proximamente*/
+.cartel-proximamente {
+  background-color: #ffe6f0; 
+  color: #df5b87; 
+  text-align: center;
+  padding: 40px 20px;
+  border-radius: 12px;
+  font-size: 28px;
+  font-weight: bold;
+  margin: 40px auto;
+  max-width: 600px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }

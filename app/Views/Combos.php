@@ -23,6 +23,9 @@
 <?= $this->include('templates/header') ?>
 
 <section class="container my-5">
+<div class="cartel-proximamente">
+  Próximamente...
+</div>
 <h2 class="text-center mb-4">🍔🍟 ¡Nuestros Combos! 🍔🍟</h2>
 
 

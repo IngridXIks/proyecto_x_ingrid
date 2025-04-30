@@ -30,12 +30,21 @@
     <p><strong>✉️ Correo electrónico:</strong> contacto@deliburger.com</p>
   </div>
 
-  <form class="formulario-contacto">
-    <input type="text" placeholder="Tu nombre" required>
-    <input type="email" placeholder="Tu correo electrónico" required>
-    <textarea placeholder="Motivo del contacto..." required></textarea>
-    <button type="submit">Enviar</button>
-  </form>
+  <form class="formulario-contacto" id="formulario">
+  <input type="text" placeholder="Tu nombre" required>
+  <input type="email" placeholder="Tu correo electrónico" required>
+  <textarea placeholder="Motivo del contacto..." required></textarea>
+  <button type="submit">Enviar</button>
+</form>
+<p id="mensaje-enviado" style="display: none; color: green; font-weight: bold;">¡Enviado!</p>
+<!--Mensaje de enviado(sin destinatario)-->
+<script>
+  document.getElementById('formulario').addEventListener('submit', function(event) {
+    event.preventDefault(); 
+    document.getElementById('mensaje-enviado').style.display = 'block';
+  });
+</script>
+
 </section>
 </main>
 
