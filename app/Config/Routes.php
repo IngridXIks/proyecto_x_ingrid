@@ -17,3 +17,7 @@ $routes->get('hamburguesas', 'Hamburguesas::hamburguesas');
 $routes->get('combos', 'Combos::combos');
 $routes->get('bebidas', 'Bebidas_postres::bebidas_postres');
 $routes->get('buscar', 'BuscarController::index');
+//BD
+$routes->post('carrito/agregar', 'Carrito::agregar');
+$routes->get('carrito/ver', 'Carrito::ver');
+$routes->get('producto', 'Producto::index');
