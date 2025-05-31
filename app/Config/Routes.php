@@ -21,3 +21,5 @@ $routes->get('buscar', 'BuscarController::index');
 $routes->post('carrito/agregar', 'Carrito::agregar');
 $routes->get('carrito/ver', 'Carrito::ver');
 $routes->get('producto', 'Producto::index');
+$routes->get('consulta', 'Consulta::index');
+$routes->post('consulta/enviar', 'Consulta::enviar');

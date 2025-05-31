@@ -14,7 +14,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
 
-<body class="routes-body">
+<body>
 <?= $this->include('templates/header') ?>
 
 <main class="container my-5">
@@ -42,6 +42,6 @@
 </main>
 
 <?= $this->include('templates/footer') ?>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

@@ -46,6 +46,11 @@
                         <li><a class="dropdown-item" href="<?= base_url('comercializacion') ?>">Comercialización</a></li>
                     </ul>
                 </li>
+                <!-- Página de Consultas -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= base_url('/consulta') ?>">Consultas</a>
+                    </li>
+                </ul>
             </ul>
             <form class="d-flex" role="search" action="<?= base_url('buscar') ?>" method="get">
                 <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Buscar" name="q">

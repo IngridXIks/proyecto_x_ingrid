@@ -18,8 +18,8 @@
 <!-- HEADER -->
 <?= $this->include('templates/header') ?>
 
-       <img src="/proyecto_x_ingrid/public/img/InformacionContacto.png" alt="Información de Contacto" class="img">
-       <main>
+      <img src="/proyecto_x_ingrid/public/img/InformacionContacto.png" alt="Información de Contacto" class="img">
+      <main>
         <section id="contacto" class="contacto">
   <h2>Contáctanos</h2>
   <p>¿Tienes alguna pregunta o comentario? ¡Estamos aquí para ayudarte!</p>
@@ -50,7 +50,5 @@
 
   <!-- FOOTER -->
   <?= $this->include('templates/footer') ?>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
