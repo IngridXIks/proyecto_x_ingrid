@@ -8,7 +8,9 @@
             <td><?= $u['nombre'] ?></td>
             <td><?= $u['apellido'] ?></td>
             <td><?= $u['email'] ?></td>
-            <td><?= $u['perfil_descripcion'] ?></td>
+            <td><?= $u['pass'] ?></td>
+            <td><?= $u['perfil_id'] ?></td>
+            <td><?= $u['baja'] ?></td>
             <td>
                 <a href="usuario_controller.php?accion=editar&id=<?= $u['id_usuario'] ?>">Editar</a> |
                 <a href="usuario_controller.php?accion=eliminar&id=<?= $u['id_usuario'] ?>" onclick="return confirm('¿Eliminar?')">Eliminar</a>

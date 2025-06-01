@@ -15,13 +15,19 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="<?= base_url('/') ?>">Inicio</a>
+                    <a class="nav-link active" aria-current="page" href="<?= base_url('/') ?>">
+                        <i class="fas fa-home"></i> Inicio
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('/promociones') ?>">Promociones</a>
+                    <a class="nav-link" href="<?= base_url('/promociones') ?>">
+                        <i class="fas fa-tags"></i> Promociones
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('/locales') ?>">Locales</a>
+                    <a class="nav-link" href="<?= base_url('/locales') ?>">
+                        <i class="fas fa-map-marker-alt"></i> Locales
+                    </a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -34,6 +40,15 @@
                     </ul>
                 </li>
 
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= base_url('/consulta') ?>">Consultas</a>
+                    </li>
+               
+                <li class="nav-item">
+                    <a class="nav-link carrito-link" href="<?= base_url('/carrito') ?>">
+                        <i class="fas fa-shopping-cart"></i> Carrito
+                    </a>
+                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Sobre...
@@ -46,12 +61,8 @@
                         <li><a class="dropdown-item" href="<?= base_url('comercializacion') ?>">Comercialización</a></li>
                     </ul>
                 </li>
-                <!-- Página de Consultas -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= base_url('/consulta') ?>">Consultas</a>
-                    </li>
-                </ul>
             </ul>
+
             <form class="d-flex" role="search" action="<?= base_url('buscar') ?>" method="get">
                 <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Buscar" name="q">
                 <button class="btn btn-outline-success" type="submit">Buscar</button>

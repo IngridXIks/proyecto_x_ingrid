@@ -1,66 +1,45 @@
-<?php
-session_start();
-include('Database.php'); 
+<h2>Confirmar Pago</h2>
 
-// Identificar usuario o sesión
-$user_id = $_SESSION['user_id'] ?? null;
-$session_id = session_id();
+<?php if (empty($carrito)): ?>
+    <p>Tu carrito está vacío. <a href="<?= base_url() ?>">Volver a la tienda</a></p>
+<?php else: ?>
+    <table>
+        <thead>
+            <tr>
+                <th>Producto</th><th>Cantidad</th><th>Precio</th><th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php $total = 0; ?>
+            <?php foreach ($carrito as $item): ?>
+                <tr>
+                    <td><?= esc($item['nombre']) ?></td>
+                    <td><?= esc($item['cantidad']) ?></td>
+                    <td>$<?= number_format($item['precio'], 2) ?></td>
+                    <td>$<?= number_format($item['precio'] * $item['cantidad'], 2) ?></td>
+                </tr>
+                <?php $total += $item['precio'] * $item['cantidad']; ?>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+    <h3>Total: $<?= number_format($total, 2) ?></h3>
 
-// Obtener productos del carrito
-if ($user_id) {
-    $sql = "SELECT c.*, p.precio FROM carrito c 
-            JOIN productos p ON c.producto_id = p.id 
-            WHERE c.user_id = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $user_id);
-} else {
-    $sql = "SELECT c.*, p.precio FROM carrito c 
-            JOIN productos p ON c.producto_id = p.id 
-            WHERE c.session_id = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("s", $session_id);
-}
-$stmt->execute();
-$result = $stmt->get_result();
+    <form action="<?= base_url('carrito/pagar') ?>" method="post">
+        <?= csrf_field() ?>
 
-$total = 0;
-$productos = [];
+        <!-- Campos de pago, pueden ser ficticios o integrados a pasarela real -->
+        <label for="nombre">Nombre en la tarjeta:</label>
+        <input type="text" id="nombre" name="nombre" required>
 
-while ($row = $result->fetch_assoc()) {
-    $subtotal = $row['precio'] * $row['cantidad'];
-    $total += $subtotal;
-    $productos[] = $row;
-}
+        <label for="tarjeta">Número de tarjeta:</label>
+        <input type="text" id="tarjeta" name="tarjeta" required>
 
-// Registrar venta
-$sql = "INSERT INTO ventas (user_id, session_id, total) VALUES (?, ?, ?)";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("ssd", $user_id, $session_id, $total);
-$stmt->execute();
-$venta_id = $stmt->insert_id;
+        <label for="fecha_exp">Fecha de expiración:</label>
+        <input type="text" id="fecha_exp" name="fecha_exp" placeholder="MM/AA" required>
 
-// Insertar detalles
-$sql = "INSERT INTO venta_detalle (venta_id, producto_id, cantidad, precio_unitario) VALUES (?, ?, ?, ?)";
-$stmt = $conn->prepare($sql);
+        <label for="cvv">CVV:</label>
+        <input type="text" id="cvv" name="cvv" required>
 
-foreach ($productos as $producto) {
-    $stmt->bind_param("iiid", $venta_id, $producto['producto_id'], $producto['cantidad'], $producto['precio']);
-    $stmt->execute();
-}
-
-// Vaciar carrito
-if ($user_id) {
-    $sql = "DELETE FROM carrito WHERE user_id = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $user_id);
-} else {
-    $sql = "DELETE FROM carrito WHERE session_id = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("s", $session_id);
-}
-$stmt->execute();
-
-// Redirigir
-header("Location: gracias.php");
-exit;
-?>
+        <button type="submit" class="btn btn-success">Pagar</button>
+    </form>
+<?php endif; ?>

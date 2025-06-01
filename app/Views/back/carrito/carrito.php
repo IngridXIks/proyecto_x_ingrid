@@ -1,28 +1,34 @@
-<?php
-session_start();
-include('Database.php');
+<h1>🛒 Tu Carrito</h1>
 
-$session_id = session_id();
-
-$sql = "SELECT c.*, p.nombre, p.precio 
-        FROM carrito c 
-        JOIN productos p ON c.producto_id = p.id 
-        WHERE c.session_id = ?";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("s", $session_id);
-$stmt->execute();
-$result = $stmt->get_result();
-
-$total = 0;
-
-echo "<h1>Carrito</h1>";
-echo "<ul>";
-while ($row = $result->fetch_assoc()) {
-    $subtotal = $row['precio'] * $row['cantidad'];
-    $total += $subtotal;
-    echo "<li>{$row['nombre']} x {$row['cantidad']} = $" . number_format($subtotal, 2) . "</li>";
-}
-echo "</ul>";
-echo "<h3>Total: $" . number_format($total, 2) . "</h3>";
-?>
-<a href="pagar.php">Finalizar compra</a>
+<?php if (empty($carrito)): ?>
+    <p>Tu carrito está vacío.</p>
+<?php else: ?>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+                <th>Subtotal</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($carrito as $item): ?>
+                <tr>
+                    <td><?= esc($item['nombre']) ?></td>
+                    <td><?= esc($item['cantidad']) ?></td>
+                    <td>$<?= number_format($item['precio'], 2) ?></td>
+                    <td>$<?= number_format($item['precio'] * $item['cantidad'], 2) ?></td>
+                    <td>
+                        <form action="<?= base_url('carrito/eliminar') ?>" method="post" style="display:inline;">
+                            <?= csrf_field() ?>
+                            <input type="hidden" name="id" value="<?= esc($item['id']) ?>">
+                            <button type="submit" class="btn btn-danger btn-sm">Quitar</button>
+                        </form>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+<?php endif; ?>

@@ -18,8 +18,11 @@ $routes->get('combos', 'Combos::combos');
 $routes->get('bebidas', 'Bebidas_postres::bebidas_postres');
 $routes->get('buscar', 'BuscarController::index');
 //BD
-$routes->post('carrito/agregar', 'Carrito::agregar');
-$routes->get('carrito/ver', 'Carrito::ver');
+$routes->get('/carrito', 'CarritoController::index');
+$routes->get('/carrito/agregar/(:num)', 'CarritoController::mostrarAgregarCarrito/$1');
+$routes->get('/carrito/pagar', 'CarritoController::mostrarPagar');
+$routes->get('/carrito/producto/(:num)', 'CarritoController::mostrarProducto/$1');
+
 $routes->get('producto', 'Producto::index');
 $routes->get('consulta', 'Consulta::index');
 $routes->post('consulta/enviar', 'Consulta::enviar');
