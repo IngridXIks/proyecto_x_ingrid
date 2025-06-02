@@ -1,81 +1,86 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Models\CarritoModel;
+use App\Models\ProductoModel;
 
 class CarritoController extends BaseController
 {
-    protected $carrito;
+    protected $carritoModel;
+    protected $productoModel;
 
     public function __construct()
     {
-        $this->carrito = new CarritoModel();
+        $this->carritoModel = new CarritoModel();
+        $this->productoModel = new ProductoModel();
     }
 
-    // Muestra contenido del carrito
     public function index()
     {
-        $user_id = session()->get('user_id'); 
-        $carrito = $this->carrito->getCarritoPorUsuario($user_id);
+        $id_usuario = session()->get('id_usuario'); // Asegurate de que esté seteado en login
 
-        return view('back/carrito/carrito', ['carrito' => $carrito]);
+        $data['carrito'] = $this->carritoModel->getCarritoPorUsuario($id_usuario);
+
+        return view('back/carrito/carrito', $data);
     }
 
-    public function mostrarAgregarCarrito($producto_id)
-{
-    return view('back/carrito/agregar_carrito', ['producto_id' => $producto_id]);
-}
-
-public function mostrarProducto($producto_id)
-{
-    return view('back/carrito/producto', ['producto_id' => $producto_id]);
-}
-
-public function mostrarPagar()
-{
-    return view('back/carrito/pagar');
-}
-
-    // Agregar producto al carrito (POST)
     public function agregar()
-    {
-        $user_id = session()->get('user_id');
-        $producto_id = $this->request->getPost('producto_id');
-
-        if (!$producto_id) {
-            return redirect()->back()->with('error', 'Producto no válido.');
-        }
-
-        $itemExistente = $this->carrito->where([
-            'producto_id' => $producto_id,
-            'user_id' => $user_id
-        ])->first();
-
-        if ($itemExistente) {
-            $itemExistente['cantidad'] += 1;
-            $this->carrito->save($itemExistente);
-        } else {
-            $this->carrito->insert([
-                'user_id' => $user_id,
-                'producto_id' => $producto_id,
-                'cantidad' => 1
-            ]);
-        }
-
-        return redirect()->to('/carrito')->with('success', 'Producto agregado al carrito.');
+{
+    $id_usuario = session()->get('id_usuario');
+    if (!$id_usuario) {
+        return redirect()->to('/login')->with('error', 'Debes iniciar sesión.');
     }
 
-    // Eliminar producto del carrito (POST)
+    $id_producto = $this->request->getPost('id_producto');
+
+    $productoModel = new \App\Models\ProductoModel();
+    $producto = $productoModel->where('id', $id_producto)->where('activo', 1)->first();
+
+    if (!$producto) {
+        return redirect()->back()->with('error', 'Producto no válido o no activo.');
+    }
+
+    $carritoModel = new \App\Models\CarritoModel();
+
+    $itemExistente = $carritoModel->where('id_usuario', $id_usuario)
+                                  ->where('id_producto', $id_producto)
+                                  ->first();
+
+    if ($itemExistente) {
+        $actualizado = $carritoModel->update($itemExistente['id'], [
+            'cantidad' => $itemExistente['cantidad'] + 1
+        ]);
+
+        if (!$actualizado) {
+            dd('Error actualizando carrito:', $carritoModel->errors());
+        }
+    } else {
+        $insertado = $carritoModel->insert([
+            'id_usuario' => $id_usuario,
+            'id_producto' => $id_producto,
+            'cantidad' => 1,
+            'agregado_en' => date('Y-m-d H:i:s')
+        ]);
+
+        if (!$insertado) {
+            dd('Error insertando carrito:', $carritoModel->errors());
+        }
+    }
+
+    return redirect()->back()->with('success', 'Producto agregado al carrito.');
+}
+
+
     public function eliminar()
     {
         $id = $this->request->getPost('id');
+        $this->carritoModel->delete($id);
+        return redirect()->back()->with('success', 'Producto eliminado del carrito.');
+    }
 
-        if (!$id) {
-            return redirect()->back()->with('error', 'ID inválido.');
-        }
-
-        $this->carrito->delete($id);
-
-        return redirect()->to('/carrito')->with('success', 'Producto eliminado del carrito.');
+    public function pagar()
+    {
+        return view('back/carrito/pagar'); // Placeholder
     }
 }

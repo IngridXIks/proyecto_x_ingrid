@@ -48,14 +48,6 @@ class AuthController extends Controller
                                 ->withInput()
                                 ->with('error', 'Credenciales inválidas');
             }
-                echo 'Nuevo hash de 12345678: ' . password_hash('12345678', PASSWORD_DEFAULT);
-                echo '<pre>';
-                echo "Password ingresado: " . $password . PHP_EOL;
-                echo "Password en BD: " . $user['password'] . PHP_EOL;
-                echo "Verificación: " . (password_verify($password, $user['password']) ? 'OK' : 'FALLÓ');
-                echo '</pre>';
-exit;
-
             // Verificar contraseña
             if (!password_verify($password, $user['password'])) {
                 return redirect()->back()

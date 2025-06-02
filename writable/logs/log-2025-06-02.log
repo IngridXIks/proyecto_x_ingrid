@@ -471,3 +471,1695 @@ DEBUG - 2025-06-02 03:35:13 --> Session: Class initialized using 'CodeIgniter\Se
 DEBUG - 2025-06-02 03:35:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2025-06-02 03:35:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2025-06-02 03:35:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 19:39:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 19:39:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-06-02 19:39:41 --> mysqli_sql_exception: Table 'bd_x_ingrid.carrito' doesn't exist in C:\xampp\htdocs\proyecto_x_ingrid\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `carrito...', 0)
+#1 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito...')
+#2 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito...')
+#3 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito...', Array, false)
+#4 C:\xampp\htdocs\proyecto_x_ingrid\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\proyecto_x_ingrid\system\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\proyecto_x_ingrid\app\Models\CarritoModel.php(17): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\proyecto_x_ingrid\app\Controllers\CarritoController.php(19): App\Models\CarritoModel->getCarritoPorUsuario(NULL)
+#8 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+#9 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+#10 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\proyecto_x_ingrid\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\proyecto_x_ingrid\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\proyecto_x_ingrid\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-06-02 19:39:41 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'bd_x_ingrid.carrito' doesn't exist
+[Method: GET, Route: carrito]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\CarritoModel.php(17): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\CarritoController.php(19): App\Models\CarritoModel->getCarritoPorUsuario(null)
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-02 19:39:41 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'bd_x_ingrid.carrito' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\CarritoModel.php(17): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\CarritoController.php(19): App\Models\CarritoModel->getCarritoPorUsuario(null)
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-02 19:39:41 --> [Caused by] mysqli_sql_exception: Table 'bd_x_ingrid.carrito' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\CarritoModel.php(17): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\CarritoController.php(19): App\Models\CarritoModel->getCarritoPorUsuario(null)
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-02 19:40:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-06-02 19:40:09 --> mysqli_sql_exception: Table 'bd_x_ingrid.carrito' doesn't exist in C:\xampp\htdocs\proyecto_x_ingrid\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `carrito...', 0)
+#1 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito...')
+#2 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito...')
+#3 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito...', Array, false)
+#4 C:\xampp\htdocs\proyecto_x_ingrid\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\proyecto_x_ingrid\system\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\proyecto_x_ingrid\app\Models\CarritoModel.php(17): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\proyecto_x_ingrid\app\Controllers\CarritoController.php(19): App\Models\CarritoModel->getCarritoPorUsuario(NULL)
+#8 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+#9 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+#10 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\proyecto_x_ingrid\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\proyecto_x_ingrid\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\proyecto_x_ingrid\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-06-02 19:40:09 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'bd_x_ingrid.carrito' doesn't exist
+[Method: GET, Route: carrito]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\CarritoModel.php(17): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\CarritoController.php(19): App\Models\CarritoModel->getCarritoPorUsuario(null)
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-02 19:40:09 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'bd_x_ingrid.carrito' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\CarritoModel.php(17): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\CarritoController.php(19): App\Models\CarritoModel->getCarritoPorUsuario(null)
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-02 19:40:09 --> [Caused by] mysqli_sql_exception: Table 'bd_x_ingrid.carrito' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\CarritoModel.php(17): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\CarritoController.php(19): App\Models\CarritoModel->getCarritoPorUsuario(null)
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-02 19:40:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-06-02 19:40:12 --> mysqli_sql_exception: Table 'bd_x_ingrid.carrito' doesn't exist in C:\xampp\htdocs\proyecto_x_ingrid\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `carrito...', 0)
+#1 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito...')
+#2 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito...')
+#3 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito...', Array, false)
+#4 C:\xampp\htdocs\proyecto_x_ingrid\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\proyecto_x_ingrid\system\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\proyecto_x_ingrid\app\Models\CarritoModel.php(17): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\proyecto_x_ingrid\app\Controllers\CarritoController.php(19): App\Models\CarritoModel->getCarritoPorUsuario(NULL)
+#8 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+#9 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+#10 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\proyecto_x_ingrid\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\proyecto_x_ingrid\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\proyecto_x_ingrid\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-06-02 19:40:12 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'bd_x_ingrid.carrito' doesn't exist
+[Method: GET, Route: carrito]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\CarritoModel.php(17): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\CarritoController.php(19): App\Models\CarritoModel->getCarritoPorUsuario(null)
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-02 19:40:12 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'bd_x_ingrid.carrito' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\CarritoModel.php(17): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\CarritoController.php(19): App\Models\CarritoModel->getCarritoPorUsuario(null)
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-02 19:40:12 --> [Caused by] mysqli_sql_exception: Table 'bd_x_ingrid.carrito' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\CarritoModel.php(17): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\CarritoController.php(19): App\Models\CarritoModel->getCarritoPorUsuario(null)
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-02 19:40:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-06-02 19:40:23 --> mysqli_sql_exception: Table 'bd_x_ingrid.carrito' doesn't exist in C:\xampp\htdocs\proyecto_x_ingrid\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `carrito...', 0)
+#1 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito...')
+#2 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito...')
+#3 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito...', Array, false)
+#4 C:\xampp\htdocs\proyecto_x_ingrid\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\proyecto_x_ingrid\system\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\proyecto_x_ingrid\app\Models\CarritoModel.php(17): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\proyecto_x_ingrid\app\Controllers\CarritoController.php(19): App\Models\CarritoModel->getCarritoPorUsuario(NULL)
+#8 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+#9 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+#10 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\proyecto_x_ingrid\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\proyecto_x_ingrid\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\proyecto_x_ingrid\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-06-02 19:40:23 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'bd_x_ingrid.carrito' doesn't exist
+[Method: GET, Route: carrito]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\CarritoModel.php(17): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\CarritoController.php(19): App\Models\CarritoModel->getCarritoPorUsuario(null)
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-02 19:40:23 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'bd_x_ingrid.carrito' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\CarritoModel.php(17): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\CarritoController.php(19): App\Models\CarritoModel->getCarritoPorUsuario(null)
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-02 19:40:23 --> [Caused by] mysqli_sql_exception: Table 'bd_x_ingrid.carrito' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\CarritoModel.php(17): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\CarritoController.php(19): App\Models\CarritoModel->getCarritoPorUsuario(null)
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-02 19:41:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-06-02 19:41:08 --> mysqli_sql_exception: Table 'bd_x_ingrid.carrito' doesn't exist in C:\xampp\htdocs\proyecto_x_ingrid\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `carrito...', 0)
+#1 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito...')
+#2 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito...')
+#3 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito...', Array, false)
+#4 C:\xampp\htdocs\proyecto_x_ingrid\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\proyecto_x_ingrid\system\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\proyecto_x_ingrid\app\Models\CarritoModel.php(17): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\proyecto_x_ingrid\app\Controllers\CarritoController.php(19): App\Models\CarritoModel->getCarritoPorUsuario(NULL)
+#8 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+#9 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+#10 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\proyecto_x_ingrid\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\proyecto_x_ingrid\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\proyecto_x_ingrid\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-06-02 19:41:08 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'bd_x_ingrid.carrito' doesn't exist
+[Method: GET, Route: carrito]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\CarritoModel.php(17): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\CarritoController.php(19): App\Models\CarritoModel->getCarritoPorUsuario(null)
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-02 19:41:08 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'bd_x_ingrid.carrito' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\CarritoModel.php(17): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\CarritoController.php(19): App\Models\CarritoModel->getCarritoPorUsuario(null)
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-02 19:41:08 --> [Caused by] mysqli_sql_exception: Table 'bd_x_ingrid.carrito' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\CarritoModel.php(17): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\CarritoController.php(19): App\Models\CarritoModel->getCarritoPorUsuario(null)
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-02 19:41:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 19:41:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 19:42:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 19:42:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 19:42:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 19:42:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 19:42:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 19:42:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 19:43:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 19:47:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 19:48:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 19:48:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 19:48:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 19:48:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 19:48:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 19:48:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-06-02 19:48:14 --> mysqli_sql_exception: Table 'bd_x_ingrid.carrito' doesn't exist in C:\xampp\htdocs\proyecto_x_ingrid\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `carrito...', 0)
+#1 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito...')
+#2 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito...')
+#3 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito...', Array, false)
+#4 C:\xampp\htdocs\proyecto_x_ingrid\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\proyecto_x_ingrid\system\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\proyecto_x_ingrid\app\Models\CarritoModel.php(17): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\proyecto_x_ingrid\app\Controllers\CarritoController.php(19): App\Models\CarritoModel->getCarritoPorUsuario(NULL)
+#8 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+#9 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+#10 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\proyecto_x_ingrid\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\proyecto_x_ingrid\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\proyecto_x_ingrid\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-06-02 19:48:14 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'bd_x_ingrid.carrito' doesn't exist
+[Method: GET, Route: carrito]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\CarritoModel.php(17): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\CarritoController.php(19): App\Models\CarritoModel->getCarritoPorUsuario(null)
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-02 19:48:14 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'bd_x_ingrid.carrito' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\CarritoModel.php(17): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\CarritoController.php(19): App\Models\CarritoModel->getCarritoPorUsuario(null)
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-02 19:48:14 --> [Caused by] mysqli_sql_exception: Table 'bd_x_ingrid.carrito' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\CarritoModel.php(17): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\CarritoController.php(19): App\Models\CarritoModel->getCarritoPorUsuario(null)
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-02 19:48:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 19:48:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 19:48:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 19:48:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 19:48:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 19:48:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 19:48:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 19:48:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 19:48:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 19:48:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 20:58:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 20:59:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-06-02 20:59:02 --> mysqli_sql_exception: Table 'bd_x_ingrid.carrito' doesn't exist in C:\xampp\htdocs\proyecto_x_ingrid\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `carrito...', 0)
+#1 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito...')
+#2 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito...')
+#3 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito...', Array, false)
+#4 C:\xampp\htdocs\proyecto_x_ingrid\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\proyecto_x_ingrid\system\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\proyecto_x_ingrid\app\Models\CarritoModel.php(17): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\proyecto_x_ingrid\app\Controllers\CarritoController.php(19): App\Models\CarritoModel->getCarritoPorUsuario(NULL)
+#8 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+#9 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+#10 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\proyecto_x_ingrid\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\proyecto_x_ingrid\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\proyecto_x_ingrid\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-06-02 20:59:02 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'bd_x_ingrid.carrito' doesn't exist
+[Method: GET, Route: carrito]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\CarritoModel.php(17): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\CarritoController.php(19): App\Models\CarritoModel->getCarritoPorUsuario(null)
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-02 20:59:02 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'bd_x_ingrid.carrito' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\CarritoModel.php(17): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\CarritoController.php(19): App\Models\CarritoModel->getCarritoPorUsuario(null)
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-02 20:59:02 --> [Caused by] mysqli_sql_exception: Table 'bd_x_ingrid.carrito' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\CarritoModel.php(17): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\CarritoController.php(19): App\Models\CarritoModel->getCarritoPorUsuario(null)
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-02 21:02:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:02:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-06-02 21:02:56 --> mysqli_sql_exception: Unknown column 'user_id' in 'where clause' in C:\xampp\htdocs\proyecto_x_ingrid\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `carrito...', 0)
+#1 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito...')
+#2 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito...')
+#3 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito...', Array, false)
+#4 C:\xampp\htdocs\proyecto_x_ingrid\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\proyecto_x_ingrid\system\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\proyecto_x_ingrid\app\Models\CarritoModel.php(17): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\proyecto_x_ingrid\app\Controllers\CarritoController.php(19): App\Models\CarritoModel->getCarritoPorUsuario(NULL)
+#8 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+#9 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+#10 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\proyecto_x_ingrid\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\proyecto_x_ingrid\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\proyecto_x_ingrid\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-06-02 21:02:56 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'user_id' in 'where clause'
+[Method: GET, Route: carrito]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\CarritoModel.php(17): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\CarritoController.php(19): App\Models\CarritoModel->getCarritoPorUsuario(null)
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-02 21:02:56 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'user_id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\CarritoModel.php(17): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\CarritoController.php(19): App\Models\CarritoModel->getCarritoPorUsuario(null)
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-02 21:02:56 --> [Caused by] mysqli_sql_exception: Unknown column 'user_id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` IS NULL', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\CarritoModel.php(17): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\CarritoController.php(19): App\Models\CarritoModel->getCarritoPorUsuario(null)
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-02 21:15:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:15:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:15:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:15:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:15:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:15:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-06-02 21:15:11 --> mysqli_sql_exception: Unknown column 'user_id' in 'where clause' in C:\xampp\htdocs\proyecto_x_ingrid\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `carrito...', 0)
+#1 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito...')
+#2 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito...')
+#3 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito...', Array, false)
+#4 C:\xampp\htdocs\proyecto_x_ingrid\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\proyecto_x_ingrid\system\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\proyecto_x_ingrid\app\Models\CarritoModel.php(17): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\proyecto_x_ingrid\app\Controllers\CarritoController.php(23): App\Models\CarritoModel->getCarritoPorUsuario('10')
+#8 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+#9 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+#10 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\proyecto_x_ingrid\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\proyecto_x_ingrid\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\proyecto_x_ingrid\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-06-02 21:15:11 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'user_id' in 'where clause'
+[Method: GET, Route: carrito]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` = :user_id:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\CarritoModel.php(17): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\CarritoController.php(23): App\Models\CarritoModel->getCarritoPorUsuario('10')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-02 21:15:11 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'user_id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` = \'10\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` = \'10\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` = :user_id:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\CarritoModel.php(17): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\CarritoController.php(23): App\Models\CarritoModel->getCarritoPorUsuario('10')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-02 21:15:11 --> [Caused by] mysqli_sql_exception: Unknown column 'user_id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` = \'10\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` = \'10\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` = \'10\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `user_id` = :user_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\CarritoModel.php(17): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\CarritoController.php(23): App\Models\CarritoModel->getCarritoPorUsuario('10')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-02 21:16:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-06-02 21:16:11 --> mysqli_sql_exception: Unknown column 'carrito.producto_id' in 'on clause' in C:\xampp\htdocs\proyecto_x_ingrid\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `carrito...', 0)
+#1 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito...')
+#2 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito...')
+#3 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito...', Array, false)
+#4 C:\xampp\htdocs\proyecto_x_ingrid\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\proyecto_x_ingrid\system\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\proyecto_x_ingrid\app\Models\CarritoModel.php(17): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\proyecto_x_ingrid\app\Controllers\CarritoController.php(23): App\Models\CarritoModel->getCarritoPorUsuario('10')
+#8 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+#9 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+#10 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\proyecto_x_ingrid\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\proyecto_x_ingrid\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\proyecto_x_ingrid\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-06-02 21:16:11 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'carrito.producto_id' in 'on clause'
+[Method: GET, Route: carrito]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `id_usuario` = :id_usuario:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\CarritoModel.php(17): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\CarritoController.php(23): App\Models\CarritoModel->getCarritoPorUsuario('10')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-02 21:16:11 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'carrito.producto_id' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `id_usuario` = \'10\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `id_usuario` = \'10\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `id_usuario` = :id_usuario:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\CarritoModel.php(17): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\CarritoController.php(23): App\Models\CarritoModel->getCarritoPorUsuario('10')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-02 21:16:11 --> [Caused by] mysqli_sql_exception: Unknown column 'carrito.producto_id' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `id_usuario` = \'10\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `id_usuario` = \'10\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `id_usuario` = \'10\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `id_usuario` = :id_usuario:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\CarritoModel.php(17): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\CarritoController.php(23): App\Models\CarritoModel->getCarritoPorUsuario('10')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-02 21:23:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:23:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-06-02 21:23:11 --> mysqli_sql_exception: Unknown column 'carrito.producto_id' in 'on clause' in C:\xampp\htdocs\proyecto_x_ingrid\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `carrito...', 0)
+#1 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito...')
+#2 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito...')
+#3 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito...', Array, false)
+#4 C:\xampp\htdocs\proyecto_x_ingrid\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\proyecto_x_ingrid\system\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\proyecto_x_ingrid\app\Models\CarritoModel.php(17): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\proyecto_x_ingrid\app\Controllers\CarritoController.php(23): App\Models\CarritoModel->getCarritoPorUsuario('10')
+#8 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+#9 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+#10 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\proyecto_x_ingrid\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\proyecto_x_ingrid\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\proyecto_x_ingrid\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-06-02 21:23:11 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'carrito.producto_id' in 'on clause'
+[Method: GET, Route: carrito]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `id_usuario` = :id_usuario:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\CarritoModel.php(17): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\CarritoController.php(23): App\Models\CarritoModel->getCarritoPorUsuario('10')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-02 21:23:11 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'carrito.producto_id' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `id_usuario` = \'10\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `id_usuario` = \'10\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `id_usuario` = :id_usuario:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\CarritoModel.php(17): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\CarritoController.php(23): App\Models\CarritoModel->getCarritoPorUsuario('10')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-02 21:23:11 --> [Caused by] mysqli_sql_exception: Unknown column 'carrito.producto_id' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `id_usuario` = \'10\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `id_usuario` = \'10\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `id_usuario` = \'10\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id` = `carrito`.`producto_id`
+WHERE `id_usuario` = :id_usuario:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\CarritoModel.php(17): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\CarritoController.php(23): App\Models\CarritoModel->getCarritoPorUsuario('10')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-02 21:38:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:38:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:38:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:38:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:38:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:38:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:38:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:38:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:38:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:38:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:38:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:38:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:39:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:39:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:39:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:39:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:39:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:39:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:44:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:44:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:44:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:45:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:45:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:45:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:45:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:45:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:45:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:45:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:45:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:45:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:45:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:46:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:46:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:46:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:46:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:46:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:46:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:47:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:47:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:47:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:47:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:47:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:47:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:47:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:47:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:47:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:47:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:47:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:47:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:49:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:49:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:49:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:49:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:49:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:49:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:49:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:49:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:49:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:49:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:49:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:49:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:49:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:49:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:49:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:49:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:49:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:49:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:49:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:49:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:49:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:49:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:49:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:54:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:54:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:55:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-02 21:55:42 --> ErrorException: Undefined variable $producto
+[Method: GET, Route: carrito]
+in APPPATH\Views\back\carrito\carrito.php on line 25.
+ 1 APPPATH\Views\back\carrito\carrito.php(25): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $producto', 'C:\\xampp\\htdocs\\proyecto_x_ingrid\\app\\Views\\back\\carrito\\carrito.php', 25)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\proyecto_x_ingrid\\app\\Views\\back\\carrito\\carrito.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('back/carrito/carrito', [], true)
+ 5 APPPATH\Controllers\CarritoController.php(25): view('back/carrito/carrito', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-02 21:57:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-06-02 21:57:58 --> mysqli_sql_exception: Unknown column 'productos.id_producto' in 'on clause' in C:\xampp\htdocs\proyecto_x_ingrid\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `carrito...', 0)
+#1 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito...')
+#2 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito...')
+#3 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito...', Array, false)
+#4 C:\xampp\htdocs\proyecto_x_ingrid\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\proyecto_x_ingrid\system\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\proyecto_x_ingrid\app\Models\CarritoModel.php(18): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\proyecto_x_ingrid\app\Controllers\CarritoController.php(23): App\Models\CarritoModel->getCarritoPorUsuario('11')
+#8 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+#9 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+#10 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\proyecto_x_ingrid\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\proyecto_x_ingrid\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\proyecto_x_ingrid\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-06-02 21:57:58 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'productos.id_producto' in 'on clause'
+[Method: GET, Route: carrito]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id_producto` = `carrito`.`id_producto`
+WHERE `id_usuario` = :id_usuario:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\CarritoModel.php(18): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\CarritoController.php(23): App\Models\CarritoModel->getCarritoPorUsuario('11')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-02 21:57:58 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'productos.id_producto' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id_producto` = `carrito`.`id_producto`
+WHERE `id_usuario` = \'11\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id_producto` = `carrito`.`id_producto`
+WHERE `id_usuario` = \'11\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id_producto` = `carrito`.`id_producto`
+WHERE `id_usuario` = :id_usuario:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\CarritoModel.php(18): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\CarritoController.php(23): App\Models\CarritoModel->getCarritoPorUsuario('11')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-02 21:57:58 --> [Caused by] mysqli_sql_exception: Unknown column 'productos.id_producto' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id_producto` = `carrito`.`id_producto`
+WHERE `id_usuario` = \'11\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id_producto` = `carrito`.`id_producto`
+WHERE `id_usuario` = \'11\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id_producto` = `carrito`.`id_producto`
+WHERE `id_usuario` = \'11\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id_producto` = `carrito`.`id_producto`
+WHERE `id_usuario` = :id_usuario:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\CarritoModel.php(18): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\CarritoController.php(23): App\Models\CarritoModel->getCarritoPorUsuario('11')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-02 21:58:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-06-02 21:58:00 --> mysqli_sql_exception: Unknown column 'productos.id_producto' in 'on clause' in C:\xampp\htdocs\proyecto_x_ingrid\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `carrito...', 0)
+#1 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito...')
+#2 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito...')
+#3 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito...', Array, false)
+#4 C:\xampp\htdocs\proyecto_x_ingrid\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\proyecto_x_ingrid\system\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\proyecto_x_ingrid\app\Models\CarritoModel.php(18): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\proyecto_x_ingrid\app\Controllers\CarritoController.php(23): App\Models\CarritoModel->getCarritoPorUsuario('11')
+#8 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+#9 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+#10 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\proyecto_x_ingrid\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\proyecto_x_ingrid\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\proyecto_x_ingrid\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-06-02 21:58:00 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'productos.id_producto' in 'on clause'
+[Method: GET, Route: carrito]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id_producto` = `carrito`.`id_producto`
+WHERE `id_usuario` = :id_usuario:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\CarritoModel.php(18): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\CarritoController.php(23): App\Models\CarritoModel->getCarritoPorUsuario('11')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-02 21:58:00 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'productos.id_producto' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id_producto` = `carrito`.`id_producto`
+WHERE `id_usuario` = \'11\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id_producto` = `carrito`.`id_producto`
+WHERE `id_usuario` = \'11\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id_producto` = `carrito`.`id_producto`
+WHERE `id_usuario` = :id_usuario:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\CarritoModel.php(18): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\CarritoController.php(23): App\Models\CarritoModel->getCarritoPorUsuario('11')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-02 21:58:00 --> [Caused by] mysqli_sql_exception: Unknown column 'productos.id_producto' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id_producto` = `carrito`.`id_producto`
+WHERE `id_usuario` = \'11\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id_producto` = `carrito`.`id_producto`
+WHERE `id_usuario` = \'11\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id_producto` = `carrito`.`id_producto`
+WHERE `id_usuario` = \'11\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id_producto` = `carrito`.`id_producto`
+WHERE `id_usuario` = :id_usuario:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\CarritoModel.php(18): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\CarritoController.php(23): App\Models\CarritoModel->getCarritoPorUsuario('11')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-02 21:58:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-06-02 21:58:00 --> mysqli_sql_exception: Unknown column 'productos.id_producto' in 'on clause' in C:\xampp\htdocs\proyecto_x_ingrid\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `carrito...', 0)
+#1 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito...')
+#2 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito...')
+#3 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito...', Array, false)
+#4 C:\xampp\htdocs\proyecto_x_ingrid\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\proyecto_x_ingrid\system\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\proyecto_x_ingrid\app\Models\CarritoModel.php(18): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\proyecto_x_ingrid\app\Controllers\CarritoController.php(23): App\Models\CarritoModel->getCarritoPorUsuario('11')
+#8 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+#9 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+#10 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\proyecto_x_ingrid\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\proyecto_x_ingrid\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\proyecto_x_ingrid\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-06-02 21:58:00 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'productos.id_producto' in 'on clause'
+[Method: GET, Route: carrito]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id_producto` = `carrito`.`id_producto`
+WHERE `id_usuario` = :id_usuario:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\CarritoModel.php(18): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\CarritoController.php(23): App\Models\CarritoModel->getCarritoPorUsuario('11')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-02 21:58:00 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'productos.id_producto' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id_producto` = `carrito`.`id_producto`
+WHERE `id_usuario` = \'11\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id_producto` = `carrito`.`id_producto`
+WHERE `id_usuario` = \'11\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id_producto` = `carrito`.`id_producto`
+WHERE `id_usuario` = :id_usuario:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\CarritoModel.php(18): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\CarritoController.php(23): App\Models\CarritoModel->getCarritoPorUsuario('11')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-02 21:58:00 --> [Caused by] mysqli_sql_exception: Unknown column 'productos.id_producto' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id_producto` = `carrito`.`id_producto`
+WHERE `id_usuario` = \'11\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id_producto` = `carrito`.`id_producto`
+WHERE `id_usuario` = \'11\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id_producto` = `carrito`.`id_producto`
+WHERE `id_usuario` = \'11\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id_producto` = `carrito`.`id_producto`
+WHERE `id_usuario` = :id_usuario:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\CarritoModel.php(18): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\CarritoController.php(23): App\Models\CarritoModel->getCarritoPorUsuario('11')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-02 21:58:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 21:58:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-06-02 21:58:04 --> mysqli_sql_exception: Unknown column 'productos.id_producto' in 'on clause' in C:\xampp\htdocs\proyecto_x_ingrid\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `carrito...', 0)
+#1 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito...')
+#2 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito...')
+#3 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito...', Array, false)
+#4 C:\xampp\htdocs\proyecto_x_ingrid\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\proyecto_x_ingrid\system\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\proyecto_x_ingrid\app\Models\CarritoModel.php(18): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\proyecto_x_ingrid\app\Controllers\CarritoController.php(23): App\Models\CarritoModel->getCarritoPorUsuario('11')
+#8 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+#9 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+#10 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\proyecto_x_ingrid\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\proyecto_x_ingrid\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\proyecto_x_ingrid\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-06-02 21:58:04 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'productos.id_producto' in 'on clause'
+[Method: GET, Route: carrito]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id_producto` = `carrito`.`id_producto`
+WHERE `id_usuario` = :id_usuario:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\CarritoModel.php(18): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\CarritoController.php(23): App\Models\CarritoModel->getCarritoPorUsuario('11')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-02 21:58:04 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'productos.id_producto' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id_producto` = `carrito`.`id_producto`
+WHERE `id_usuario` = \'11\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id_producto` = `carrito`.`id_producto`
+WHERE `id_usuario` = \'11\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id_producto` = `carrito`.`id_producto`
+WHERE `id_usuario` = :id_usuario:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\CarritoModel.php(18): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\CarritoController.php(23): App\Models\CarritoModel->getCarritoPorUsuario('11')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-02 21:58:04 --> [Caused by] mysqli_sql_exception: Unknown column 'productos.id_producto' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id_producto` = `carrito`.`id_producto`
+WHERE `id_usuario` = \'11\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id_producto` = `carrito`.`id_producto`
+WHERE `id_usuario` = \'11\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id_producto` = `carrito`.`id_producto`
+WHERE `id_usuario` = \'11\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id_producto` = `carrito`.`id_producto`
+WHERE `id_usuario` = :id_usuario:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\CarritoModel.php(18): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\CarritoController.php(23): App\Models\CarritoModel->getCarritoPorUsuario('11')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-02 22:02:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 22:02:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-02 22:02:38 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "carrito/index.php"
+[Method: GET, Route: carrito]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('carrito/index.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('carrito/index', [], true)
+ 3 APPPATH\Controllers\CarritoController.php(26): view('carrito/index', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-02 22:04:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 22:04:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-06-02 22:04:06 --> mysqli_sql_exception: Unknown column 'productos.id_producto' in 'on clause' in C:\xampp\htdocs\proyecto_x_ingrid\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `carrito...', 0)
+#1 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito...')
+#2 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito...')
+#3 C:\xampp\htdocs\proyecto_x_ingrid\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito...', Array, false)
+#4 C:\xampp\htdocs\proyecto_x_ingrid\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\proyecto_x_ingrid\system\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\proyecto_x_ingrid\app\Models\CarritoModel.php(18): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\proyecto_x_ingrid\app\Controllers\CarritoController.php(24): App\Models\CarritoModel->getCarritoPorUsuario('11')
+#8 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+#9 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+#10 C:\xampp\htdocs\proyecto_x_ingrid\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\proyecto_x_ingrid\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\proyecto_x_ingrid\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\proyecto_x_ingrid\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-06-02 22:04:06 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'productos.id_producto' in 'on clause'
+[Method: GET, Route: carrito]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id_producto` = `carrito`.`id_producto`
+WHERE `id_usuario` = :id_usuario:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\CarritoModel.php(18): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\CarritoController.php(24): App\Models\CarritoModel->getCarritoPorUsuario('11')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-02 22:04:06 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'productos.id_producto' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id_producto` = `carrito`.`id_producto`
+WHERE `id_usuario` = \'11\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id_producto` = `carrito`.`id_producto`
+WHERE `id_usuario` = \'11\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id_producto` = `carrito`.`id_producto`
+WHERE `id_usuario` = :id_usuario:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\CarritoModel.php(18): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\CarritoController.php(24): App\Models\CarritoModel->getCarritoPorUsuario('11')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-02 22:04:06 --> [Caused by] mysqli_sql_exception: Unknown column 'productos.id_producto' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id_producto` = `carrito`.`id_producto`
+WHERE `id_usuario` = \'11\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id_producto` = `carrito`.`id_producto`
+WHERE `id_usuario` = \'11\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id_producto` = `carrito`.`id_producto`
+WHERE `id_usuario` = \'11\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `carrito`.*, `productos`.`nombre`, `productos`.`precio`
+FROM `carrito`
+JOIN `productos` ON `productos`.`id_producto` = `carrito`.`id_producto`
+WHERE `id_usuario` = :id_usuario:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\CarritoModel.php(18): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\CarritoController.php(24): App\Models\CarritoModel->getCarritoPorUsuario('11')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CarritoController->index()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CarritoController))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-02 22:07:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 22:07:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 22:07:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 22:07:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 22:08:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 22:08:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 22:08:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 22:17:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 22:17:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 22:18:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 22:18:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 22:18:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 22:44:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 22:44:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 22:44:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 22:44:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 22:45:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-02 22:45:41 --> ErrorException: Undefined variable $productos
+[Method: GET, Route: hamburguesas]
+in APPPATH\Views\Hamburguesas.php on line 26.
+ 1 APPPATH\Views\Hamburguesas.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $productos', 'C:\\xampp\\htdocs\\proyecto_x_ingrid\\app\\Views\\Hamburguesas.php', 26)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\proyecto_x_ingrid\\app\\Views\\Hamburguesas.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('hamburguesas', [], true)
+ 5 APPPATH\Controllers\Hamburguesas.php(8): view('hamburguesas')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Hamburguesas->hamburguesas()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Hamburguesas))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-02 22:49:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 22:49:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 22:49:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:01:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:01:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:01:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:01:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:02:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:02:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:02:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:02:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:02:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:03:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:05:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:05:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:05:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:05:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:05:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:05:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:05:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:14:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:16:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:16:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:16:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:16:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:16:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:17:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:18:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:20:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:30:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:30:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:30:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:30:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:30:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:30:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:30:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:30:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:30:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:30:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:30:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:30:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:30:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:30:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:30:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:31:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:31:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:31:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:31:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:32:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:32:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:32:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:32:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:32:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:32:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:32:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:33:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:33:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:33:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:33:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:33:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:33:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:33:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:33:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:33:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:33:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:33:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:33:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:33:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:33:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:34:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:34:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:35:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:35:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:35:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:35:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:35:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:36:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:36:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:36:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:37:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:37:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:37:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:37:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:37:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:37:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:37:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:38:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:38:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:38:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:38:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:38:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:38:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:38:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:38:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:38:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:38:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:40:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:41:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:41:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:41:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:41:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:41:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:41:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:41:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:41:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:41:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:42:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:43:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:43:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:43:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:43:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:43:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:43:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:43:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:44:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:44:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:44:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:44:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:44:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:44:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:45:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:45:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:45:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:45:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:45:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:45:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:45:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:45:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:45:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-02 23:45:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

@@ -13,7 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
 
-<body class="routes-body">
+<body>
   <!-- HEADER -->
   <?= $this->include('templates/header') ?>
 

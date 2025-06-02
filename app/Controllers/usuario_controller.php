@@ -1,47 +1,86 @@
 <?php
-include_once 'modelo/usuario_modelo.php'; // Accede al modelo
 
-$accion = $_GET['accion'] ?? 'listar';
+namespace App\Controllers;
 
-switch ($accion) {
-    case 'crear':
-    include 'Views/back/usuarios/agregausuario_view.php';
-    break;
+use App\Models\UsuarioModel;
+use App\Models\PerfilModel;
 
-case 'guardar':
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $nombre = $_POST['nombre'];
-        $apellido = $_POST['apellido'];
-        $usuario = $_POST['usuario'];
-        $email = $_POST['email'];
-        $pass = $_POST['pass'];
+class UsuarioController extends BaseController
+{
+    protected $usuarioModel;
+    protected $perfilModel;
 
-        crearUsuario($nombre, $apellido, $usuario, $email, $pass);
-        header('Location: usuario_controller.php'); // Redirige a lista
+    public function __construct()
+    {
+        $this->usuarioModel = new UsuarioModel();
+        $this->perfilModel = new PerfilModel();
+        helper(['form', 'url']);
     }
-    break;
 
+    // Listar todos los usuarios
+    public function index()
+    {
+        $data = [
+            'usuarios' => $this->usuarioModel->getUsuariosConPerfiles(),
+            'title' => 'Lista de Usuarios'
+        ];
+        return view('back/usuarios/listar', $data);
+    }
 
-    case 'editar':
-        $id = $_GET['id'];
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            actualizarUsuario($id, $_POST['nombre'], $_POST['apellido'], $_POST['usuario'], $_POST['email'], $_POST['pass']);
-            header('Location: usuario_controller.php');
-        } else {
-            $usuario = obtenerUsuarioPorId($id);
-            include 'vistas/editar_usuario.php';
+    // Mostrar formulario de creación
+    public function crear()
+    {
+        $data = [
+            'perfiles' => $this->perfilModel->findAll(),
+            'title' => 'Crear Nuevo Usuario'
+        ];
+        return view('back/usuarios/crear', $data);
+    }
+
+    // Guardar nuevo usuario
+    public function guardar()
+    {
+        $rules = [
+            'nombre' => 'required|min_length[3]',
+            'apellido' => 'required|min_length[3]',
+            'usuario' => 'required|is_unique[usuarios.usuario]',
+            'email' => 'required|valid_email|is_unique[usuarios.email]',
+            'pass' => 'required|min_length[8]',
+            'perfil_id' => 'required|numeric'
+        ];
+
+        if (!$this->validate($rules)) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
-        break;
 
-    case 'eliminar':
-        $id = $_GET['id'];
-        eliminarUsuario($id);
-        header('Location: usuario_controller.php');
-        break;
+        $data = [
+            'nombre' => $this->request->getPost('nombre'),
+            'apellido' => $this->request->getPost('apellido'),
+            'usuario' => $this->request->getPost('usuario'),
+            'email' => $this->request->getPost('email'),
+            'pass' => password_hash($this->request->getPost('pass'), PASSWORD_DEFAULT),
+            'perfil_id' => $this->request->getPost('perfil_id'),
+            'baja' => 0 // Por defecto no está dado de baja
+        ];
 
-    default:
-        $usuarios = listarUsuarios();
-        include 'vistas/listar_usuarios.php';
-        break;
-}
-?>
+        $this->usuarioModel->insert($data);
+        return redirect()->to('/usuarios')->with('success', 'Usuario creado exitosamente');
+    }
+
+    // Mostrar formulario de edición
+    public function editar($id)
+    {
+        $data = [
+            'usuario' => $this->usuarioModel->find($id),
+            'perfiles' => $this->perfilModel->findAll(),
+            'title' => 'Editar Usuario'
+        ];
+        return view('back/usuarios/editar', $data);
+    }
+
+    // Actualizar usuario
+    public function actualizar($id)
+    {
+        $rules = [
+            'nombre' => 'required|min_length[3]',
+            'apellido' => '

@@ -14,8 +14,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
 
-<body class="routes-body">
-<!-- HEADER -->
+<body>
+
 <?= $this->include('templates/header') ?>
 
        <img src="/proyecto_x_ingrid/public/img/PoliticadePrivacidad.png" alt="Políticas de Privacidad" class="img">
