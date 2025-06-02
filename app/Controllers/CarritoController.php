@@ -21,26 +21,20 @@ class CarritoController extends BaseController
         return view('back/carrito/carrito', ['carrito' => $carrito]);
     }
 
-    // Mostrar formulario para agregar producto al carrito (recibe id producto)
     public function mostrarAgregarCarrito($producto_id)
-    {
-        // Aquí puedes cargar datos del producto si quieres
-        // Por simplicidad, solo mostramos la vista:
-        return view('back/carrito/agregar_carrito', ['producto_id' => $producto_id]);
-    }
+{
+    return view('back/carrito/agregar_carrito', ['producto_id' => $producto_id]);
+}
 
-    // Mostrar vista para pagar
-    public function mostrarPagar()
-    {
-        return view('back/carrito/pagar');
-    }
+public function mostrarProducto($producto_id)
+{
+    return view('back/carrito/producto', ['producto_id' => $producto_id]);
+}
 
-    // Mostrar detalle de producto (recibe id producto)
-    public function mostrarProducto($producto_id)
-    {
-        // Aquí puedes cargar datos detallados del producto
-        return view('back/carrito/producto', ['producto_id' => $producto_id]);
-    }
+public function mostrarPagar()
+{
+    return view('back/carrito/pagar');
+}
 
     // Agregar producto al carrito (POST)
     public function agregar()

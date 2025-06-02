@@ -38,17 +38,7 @@
                         <li><a class="dropdown-item" href="<?= base_url('/combos')?>">Combos y Papas</a></li>
                         <li><a class="dropdown-item" href="<?= base_url('/bebidas')?>">Bebidas y Postres</a></li>
                     </ul>
-                </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= base_url('/consulta') ?>">Consultas</a>
-                    </li>
                
-                <li class="nav-item">
-                    <a class="nav-link carrito-link" href="<?= base_url('/carrito') ?>">
-                        <i class="fas fa-shopping-cart"></i> Carrito
-                    </a>
-                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Sobre...
@@ -60,6 +50,17 @@
                         <li><a class="dropdown-item" href="<?= base_url('Quienes_Somos') ?>">Quiénes Somos</a></li>
                         <li><a class="dropdown-item" href="<?= base_url('comercializacion') ?>">Comercialización</a></li>
                     </ul>
+                </li>
+                 </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= base_url('/consulta') ?>">Consultas</a>
+                    </li>
+               
+                <li class="nav-item">
+                    <a class="nav-link carrito-link" href="<?= base_url('/carrito') ?>">
+                        <i class="fas fa-shopping-cart"></i> Carrito
+                    </a>
                 </li>
             </ul>
 

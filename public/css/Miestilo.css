@@ -501,3 +501,29 @@ main h2 {
 .nav-link.carrito-link:hover {
     color: #c94670;
 }
+
+/*Diseño de sección Carrito*/
+.carrito-h1 {
+  background-color: #ffe6f0; 
+  color:  #df5b87;
+   text-align: center;
+  padding: 40px 20px;
+  border-radius: 12px;
+  font-size: 28px;
+  font-weight: bold;
+  margin: 40px auto;
+  max-width: 600px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-carrito {
+  color:  #df5b87;
+   text-align: center;
+  padding: 40px 20px;
+  border-radius: 12px;
+  font-size: 28px;
+  font-weight: bold;
+  margin: 40px auto;
+  max-width: 600px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}

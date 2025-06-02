@@ -19,9 +19,14 @@ $routes->get('bebidas', 'Bebidas_postres::bebidas_postres');
 $routes->get('buscar', 'BuscarController::index');
 //BD
 $routes->get('/carrito', 'CarritoController::index');
+
+$routes->post('/carrito/agregar', 'CarritoController::agregar');
+$routes->post('/carrito/eliminar', 'CarritoController::eliminar');
+
 $routes->get('/carrito/agregar/(:num)', 'CarritoController::mostrarAgregarCarrito/$1');
 $routes->get('/carrito/pagar', 'CarritoController::mostrarPagar');
 $routes->get('/carrito/producto/(:num)', 'CarritoController::mostrarProducto/$1');
+
 
 $routes->get('producto', 'Producto::index');
 $routes->get('consulta', 'Consulta::index');
