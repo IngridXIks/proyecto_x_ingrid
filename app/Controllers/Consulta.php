@@ -1,56 +1,44 @@
-<?php 
+<?php
 namespace App\Controllers;
 
 use App\Models\ConsultaModel;
 
 class Consulta extends BaseController
 {
-    public function __construct()
-    {
-        // Activar reportes de error aquí, dentro del constructor
-        ini_set('display_errors', 1);
-        error_reporting(E_ALL);
-    }
     public function index()
     {
-        helper(['form']);
-        return view('consulta_form');
+        helper('form'); // Para usar set_value() en la vista
+        return view('Contacto');
     }
 
- public function enviar()
-{
-    helper(['form']);
-    $validation = \Config\Services::validation();
+    public function enviar()
+    {
+        helper('form');
 
-    $validation->setRules([
-        'nombre' => 'required|min_length[3]',
-        'email' => 'required|valid_email',
-        'mensaje' => 'required|min_length[10]'
-    ]);
+        $reglas = [
+            'nombre'  => 'required|min_length[3]|max_length[100]',
+            'email'   => 'required|valid_email',
+            'mensaje' => 'required|min_length[5]',
+        ];
 
-    if (!$validation->withRequest($this->request)->run()) {
-        return view('consulta_form', [
-            'validation' => $validation
-        ]);
+        if (!$this->validate($reglas)) {
+            return view('Contacto', [
+                'validation' => $this->validator
+            ]);
+        }
+
+        $modelo = new ConsultaModel();
+
+        $datos = [
+            'nombre'  => $this->request->getPost('nombre'),
+            'email'   => $this->request->getPost('email'),
+            'mensaje' => $this->request->getPost('mensaje'),
+        ];
+
+        $modelo->insert($datos);
+
+        session()->setFlashdata('mensaje', 'Consulta enviada correctamente. ¡Gracias!');
+
+        return redirect()->to('/informacion-contacto');
     }
-
-
-    $modelo = new ConsultaModel();
-    $modelo->save([
-        'nombre' => $this->request->getPost('nombre'),
-        'email' => $this->request->getPost('email'),
-        'mensaje' => $this->request->getPost('mensaje')
-    ]);
-
-    $email = \Config\Services::email();
-    $email->setFrom('tu_correo@example.com', 'Tu Nombre');
-    $email->setTo('destinatario@example.com');
-    $email->setSubject('Nueva Consulta');
-    $email->setMessage("Nombre: {$this->request->getPost('nombre')}\nEmail: {$this->request->getPost('email')}\nMensaje: {$this->request->getPost('mensaje')}");
-    $email->send();
-
-
-    return view('consulta_exito');
-}
-
 }
