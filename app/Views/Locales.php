@@ -96,11 +96,8 @@
             <h3 class="mb-3">¿No puedes visitarnos?</h3>
             <p class="lead mb-4">También puedes disfrutar de Deliburger a domicilio</p>
             <div class="d-flex justify-content-center gap-3 flex-wrap">
-              <a href="#" class="btn btn-outline-primary">
+              <a class="btn btn-outline-primary" href="<?= base_url('/carrito') ?>" >
                 <i class="fas fa-motorcycle me-2"></i>Pedir por delivery
-              </a>
-              <a href="#" class="btn btn-outline-primary">
-                <i class="fas fa-mobile-alt me-2"></i>Descargar nuestra app
               </a>
             </div>
           </div>

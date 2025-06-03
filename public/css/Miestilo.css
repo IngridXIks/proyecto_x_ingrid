@@ -1,9 +1,8 @@
-/* Estilos base personalizados para Deliburger con paleta cálida y diseño moderno */
 :root {
   --primary: #E63946;
   --primary-dark: #B22222;
   --secondary: #432818;
-  --light: #FFF8F0;
+  --light: #f4a261;
   --accent: #F4A261;
   --accent-light: #FAF3DD;
   --dark: #252525;
@@ -23,6 +22,14 @@ body {
   overflow-x: hidden;
 }
 
+body.pagina-legal {
+  font-family: 'Poppins', sans-serif;
+  background-color: #FFF8F0;
+  color: var(--dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
 .logo-font {
   font-family: 'Righteous', cursive;
 }
@@ -34,28 +41,113 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section-title {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: var(--secondary);
-      margin-bottom: 2rem;
-      position: relative;
-    }
-
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 2rem;
+  position: relative;
+  padding-bottom: 15px;
+}
 .section-title:after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 0;
-      width: 80px;
-      height: 4px;
-      background: var(--accent);
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: var(--primary);
+}
+/* Estilos para el login */
+.login-container {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-
+    .login-card {
+      border-radius: 18px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      background: rgba(255,255,255,0.97);
+      padding: 2.5rem 2rem 2rem 2rem;
+      position: relative;
+      overflow: hidden;
+      animation: fadeIn 0.8s;
+    }
+    .login-card .brand-logo {
+      font-family: 'Pacifico', cursive;
+      font-size: 2.5rem;
+      color: #e63946;
+      text-align: center;
+      margin-bottom: 0.5rem;
+      letter-spacing: 1px;
+    }
+    .login-card .brand-subtitle {
+      font-size: 1.1rem;
+      color: #432818;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-family: 'Poppins', sans-serif;
+    }
+    .login-card .form-control {
+      border-radius: 8px;
+      font-size: 1.1rem;
+      padding-left: 2.5rem;
+    }
+    .login-card .input-icon {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #e63946;
+      font-size: 1.1rem;
+      opacity: 0.85;
+    }
+    .login-card .form-group {
+      position: relative;
+      margin-bottom: 1.5rem;
+    }
+    .login-card .btn-primary {
+      background: linear-gradient(90deg, #e63946 60%, #f4a261 100%);
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      box-shadow: 0 2px 8px rgba(230,57,70,0.08);
+      transition: background 0.2s;
+    }
+    .login-card .btn-primary:hover {
+      background: linear-gradient(90deg, #f4a261 0%, #e63946 100%);
+    }
+    .login-card .register-link {
+      color: #e63946;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .login-card .register-link:hover {
+      color: #432818;
+      text-decoration: underline;
+    }
+    .alert {
+      border-radius: 8px;
+      font-size: 0.98rem;
+    }
+    @media (max-width: 576px) {
+      .login-card {
+        padding: 1.5rem 0.5rem 1.5rem 0.5rem;
+      }
+    }
 /* Header */
 .navbar {
   background-color: var(--accent);
   padding: 1rem 0;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-weight: 600 !important; /* Mantiene el grosor de las letras */
+  min-height: 80px !important; /* Previene que se achique */
 }
 
 .navbar-brand, 
@@ -65,6 +157,33 @@ h1, h2, h3, h4, h5, h6 {
   transition: all 0.3s;
 }
 
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    padding-top: 1rem;
+    background-color: #111827;
+    margin-left: -0.75rem;
+    margin-right: -0.75rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  .navbar-nav .nav-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .navbar-nav .nav-item:last-child {
+    border-bottom: none;
+  }
+  .mobile-search {
+    display: block !important;
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+}
+
+.nav-link i, .dropdown-item i {
+        min-width: 1.5em;
+        text-align: center;
+        font-weight: inherit !important;
+    }
 .navbar .nav-link:hover {
   color: var(--accent-light);
   transform: translateY(-2px);
@@ -79,7 +198,31 @@ h1, h2, h3, h4, h5, h6 {
 .logo:hover {
   transform: scale(1.05);
 }
-
+@media (max-width: 991.98px) {
+        .navbar-collapse {
+            padding-top: 1rem;
+            background-color: #111827;
+            margin-left: -0.75rem;
+            margin-right: -0.75rem;
+            padding-left: 0.75rem;
+            padding-right: 0.75rem;
+        }
+        
+        .navbar-nav .nav-item {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .navbar-nav .nav-item:last-child {
+            border-bottom: none;
+        }
+        
+        /* Barra de búsqueda alternativa para móviles */
+        .mobile-search {
+            display: block !important;
+            margin-bottom: 1rem;
+            width: 100%;
+        }
+    }
 /* Hero Section */
 .hero-section {
   background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
@@ -282,6 +425,7 @@ h1, h2, h3, h4, h5, h6 {
   border-color: var(--accent);
   box-shadow: 0 0 0 0.2rem rgba(244, 162, 97, 0.25);
 }
+
 /* Estilos para la página de Locales */
 .hero-section-locales {
   background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
@@ -312,28 +456,28 @@ h1, h2, h3, h4, h5, h6 {
 
 .local-header {
   background-color: var(--primary);
-  color: white; /* Asegura que el texto sea blanco */
+  color: white; 
   padding: 1.5rem;
 }
 .local-header i {
-  color: var(--accent-light); /* Color para los iconos */
+  color: var(--accent-light); 
 }
 .local-header h3 {
   margin: 0;
   font-size: 1.5rem;
-  color: white !important; /* Fuerza el color blanco */
+  color: white !important; 
 }
 
 .local-info {
   margin-top: 0.5rem;
 }
 .local-info i {
-  color: var(--accent-light); /* Color para los iconos de info */
+  color: var(--accent-light); 
 }
 .local-info p {
   margin: 0.3rem 0;
   font-size: 0.9rem;
-  color: white; /* Texto blanco para la info */
+  color: white; 
 }
 
 .local-body {
@@ -392,6 +536,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.3rem;
   }
 }
+
 /* Estilos para la página de Hamburguesas */
 .hero-section-hamburguesas {
   background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
@@ -413,8 +558,8 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   transition: all 0.3s;
   height: 100%;
-  display: flex; /* Añade flexbox */
-  flex-direction: column; /* Organiza en columna */
+  display: flex; 
+  flex-direction: column; /
 }
 
 .food-card:hover {
@@ -429,8 +574,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .food-body {
-  flex-grow: 1; /* Hace que el cuerpo crezca */
-  display: flex; /* Flex interno */
+  flex-grow: 1;
+  display: flex; 
   flex-direction: column;
   padding: 1.5rem;
 }
@@ -458,7 +603,7 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--dark);
   font-size: 0.9rem;
   margin-bottom: 1rem;
-  flex-grow: 1; /* Permite que la descripción ocupe el espacio restante */
+  flex-grow: 1; 
 }
 
 .food-price {
@@ -468,8 +613,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 .btn-add-to-cart {
   margin-top: auto;
-  align-self: flex-start; /* Alinea a la izquierda */
-  width: auto; /* O '100%' si quieres que ocupe todo el ancho */
+  align-self: flex-start; 
+  width: auto; 
 }
 /* Animaciones */
 @keyframes fadeIn {
@@ -933,7 +1078,6 @@ h1, h2, h3, h4, h5, h6 {
         padding: 25px;
     }
 }
-/* Mantener todos los otros estilos legales del archivo anterior */
 /* Estilos personalizados */
 .text-orange {
   color: #fd7e14;
@@ -1399,9 +1543,12 @@ h1, h2, h3, h4, h5, h6 {
   }
   
   .navbar-collapse {
-    background-color: var(--accent);
-    padding: 1rem;
-    border-radius: 8px;
-    margin-top: 1rem;
+      padding-top: 1rem;
+      background-color: #111827;
+    margin-left: -0.75rem;
+    margin-right: -0.75rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
   }
 }
+

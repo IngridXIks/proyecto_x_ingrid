@@ -13,20 +13,14 @@ $routes->get('Contacto', 'InformaciondeContacto::Contacto'); //
 $routes->get('informacion-contacto', 'Consulta::index');    
 $routes->post('consulta/enviar', 'Consulta::enviar');      
 $routes->get('comercializacion', 'Comercializacion::comercializacion');
-$routes->get('promociones', 'Promociones::promociones');
 $routes->get('locales', 'Locales::locales');
 $routes->get('/hamburguesas', 'ProductoController::index');
 
-$routes->get('combos', 'Combos::combos');
-$routes->get('bebidas', 'Bebidas_postres::bebidas_postres');
+
 $routes->get('buscar', 'BuscarController::index');
-//BD
-$routes->get('carrito', 'CarritoController::index');
-$routes->post('carrito/agregar', 'CarritoController::agregar');
-$routes->post('carrito/eliminar', 'CarritoController::eliminar');
-$routes->get('carrito/pagar', 'CarritoController::pagar');
-$routes->post('carrito/actualizar', 'CarritoController::actualizar');
+
 // Rutas de autenticación
+
 $routes->get('login', 'AuthController::login');
 $routes->post('login', 'AuthController::processLogin');
 
@@ -42,3 +36,8 @@ $routes->post('direcciones/guardar', 'DireccionesController::guardar');
 $routes->get('direcciones/eliminar/(:num)', 'DireccionesController::eliminar/$1');
 $routes->post('direcciones/eliminar/(:num)', 'DireccionesController::eliminar/$1');
 $routes->post('perfil/actualizar', 'ProfileController::actualizarPerfil');
+$routes->get('carrito', 'CarritoController::index');
+$routes->post('carrito/agregar', 'CarritoController::agregar');
+$routes->post('carrito/eliminar', 'CarritoController::eliminar');
+$routes->get('carrito/pagar', 'CarritoController::pagar');
+$routes->post('carrito/actualizar', 'CarritoController::actualizar');
