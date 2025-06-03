@@ -20,27 +20,15 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('/promociones') ?>">
-                        <i class="fas fa-tags"></i> Promociones
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="<?= base_url('/locales') ?>">
                         <i class="fas fa-map-marker-alt"></i> Locales
                     </a>
                 </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Productos
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= base_url('/hamburguesas') ?>">
+                        Hamburguesas
                     </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="<?= base_url('/hamburguesas')?>">Hamburguesas</a></li>
-                        <li><a class="dropdown-item" href="<?= base_url('/combos')?>">Combos y Papas</a></li>
-                        <li><a class="dropdown-item" href="<?= base_url('/bebidas')?>">Bebidas y Postres</a></li>
-                    </ul>
                 </li>
-
                 <li class="nav-item">
                     <a class="nav-link carrito-link" href="<?= base_url('/carrito') ?>">
                         <i class="fas fa-shopping-cart"></i> Carrito

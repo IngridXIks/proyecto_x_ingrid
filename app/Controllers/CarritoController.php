@@ -44,8 +44,8 @@ class CarritoController extends BaseController
     $carritoModel = new \App\Models\CarritoModel();
 
     $itemExistente = $carritoModel->where('id_usuario', $id_usuario)
-                                  ->where('id_producto', $id_producto)
-                                  ->first();
+                                ->where('id_producto', $id_producto)
+                                ->first();
 
     if ($itemExistente) {
         $actualizado = $carritoModel->update($itemExistente['id'], [
@@ -70,7 +70,38 @@ class CarritoController extends BaseController
 
     return redirect()->back()->with('success', 'Producto agregado al carrito.');
 }
+    public function actualizar()
+{
+    $id_usuario = session()->get('id_usuario');
+    if (!$id_usuario) {
+        return redirect()->to('/login')->with('error', 'Debes iniciar sesión.');
+    }
 
+    $id_producto = $this->request->getPost('id');
+    $nueva_cantidad = $this->request->getPost('cantidad');
+
+    // Validar que la cantidad sea al menos 1
+    if ($nueva_cantidad < 1) {
+        return redirect()->back()->with('error', 'La cantidad no puede ser menor a 1.');
+    }
+
+    // Buscar el ítem en el carrito
+    $itemExistente = $this->carritoModel
+                         ->where('id_usuario', $id_usuario)
+                         ->where('id_producto', $id_producto)
+                         ->first();
+
+    if ($itemExistente) {
+        // Actualizar la cantidad
+        $this->carritoModel->update($itemExistente['id'], [
+            'cantidad' => $nueva_cantidad
+        ]);
+        
+        return redirect()->back()->with('success', 'Cantidad actualizada.');
+    }
+
+    return redirect()->back()->with('error', 'Producto no encontrado en el carrito.');
+}
 
     public function eliminar()
     {

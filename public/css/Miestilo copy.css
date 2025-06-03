@@ -1,0 +1,274 @@
+/* General */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fdfdfd;
+    color: #333;
+}
+
+/* Header */
+.logo {
+      width: 200px;
+      height: 200px;
+      }
+      .img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+      }
+    .centrado-estilo {
+        text-align: center;     /* Centrar el texto */
+        font-weight: bold;      /* Texto en negrita */
+        font-style: italic;     /* Texto en cursiva */
+      }
+      /*Body página principal*/
+      body {
+        background-color: #ffffff;
+        color: rgba(255, 255, 255, 0.879); 
+        font-family: 'Trebuchet MS', sans-serif;
+      
+      }
+      /*Body de las rutas*/
+      .routes-body {
+        background-color: #ffffff;
+        color: #000 ;
+        text-align: center;
+    }
+    
+    .routes-body p {
+        color: #252525; 
+        margin: 0 auto; 
+        max-width: 800px; /*Establece ancho máximo para los párrafos */
+    }
+     /* Quitamos márgenes y rellenos que el navegador agrega por defecto */
+
+/* Carrusel */
+.carousel-inner img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Productos */
+.producto {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.producto img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+.producto h5 {
+    margin-top: 15px;
+    font-size: 1.25rem;
+}
+.producto p {
+    font-size: 1rem;
+    margin: 10px 0;
+}
+.producto .btn {
+    margin-top: 10px;
+}
+
+/* Secciones informativas */
+.info-section {
+    padding: 50px 20px;
+    background-color: #fff8f0;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+.info-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Formulario de contacto/consultas */
+.formulario {
+    padding: 40px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 30px auto;
+}
+.formulario label {
+    font-weight: bold;
+}
+.formulario input,
+.formulario textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+.formulario button {
+    padding: 10px 20px;
+    background-color: #ff4500;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.formulario button:hover {
+    background-color: #e03e00;
+}
+
+/* Carrito */
+.carrito {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+.carrito h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.carrito .producto-carrito {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    padding: 15px 0;
+}
+.carrito .producto-carrito img {
+    height: 80px;
+    width: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+.carrito .producto-carrito .info {
+    flex: 1;
+    margin-left: 15px;
+}
+.carrito .producto-carrito .acciones {
+    text-align: right;
+}
+.carrito .total {
+    text-align: right;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 20px;
+}
+.carrito .btn-pagar {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.carrito .btn-pagar:hover {
+    background-color: #218838;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .carrito .producto-carrito {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .carrito .producto-carrito .acciones {
+        width: 100%;
+        text-align: left;
+        margin-top: 10px;
+    }
+}
+/*Diseño de sección Carrito*/
+.carrito-h1 {
+  background-color: #ffe6f0; 
+  color:  #df5b87;
+   text-align: center;
+  padding: 40px 20px;
+  border-radius: 12px;
+  font-size: 28px;
+  font-weight: bold;
+  margin: 40px auto;
+  max-width: 600px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-carrito {
+  color:  #df5b87;
+   text-align: center;
+  padding: 40px 20px;
+  border-radius: 12px;
+  font-size: 28px;
+  font-weight: bold;
+  margin: 40px auto;
+  max-width: 600px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+/*Estilo de pie de página*/
+
+.footer {
+  background-color: #111827; 
+  color: #ffffff;
+  padding: 40px 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.footer-menu {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px;
+}
+
+.footer-logo {
+  display: flex;
+  justify-content: center; 
+  align-items: center;    
+  height: 150px;        
+  width: 100%;             
+}
+
+.footer-logo img {
+  max-width: 120px;       
+  height: auto;            
+  display: block;          
+}
+
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #ccc;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+.footer-social {
+  max-width: 1200px;
+  margin: 30px auto;
+  text-align: center;
+}
+
+.footer-social p {
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #ccc;
+}

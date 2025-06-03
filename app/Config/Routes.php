@@ -25,7 +25,7 @@ $routes->get('carrito', 'CarritoController::index');
 $routes->post('carrito/agregar', 'CarritoController::agregar');
 $routes->post('carrito/eliminar', 'CarritoController::eliminar');
 $routes->get('carrito/pagar', 'CarritoController::pagar');
-
+$routes->post('carrito/actualizar', 'CarritoController::actualizar');
 // Rutas de autenticación
 $routes->get('login', 'AuthController::login');
 $routes->post('login', 'AuthController::processLogin');
@@ -41,3 +41,4 @@ $routes->get('direcciones/crear', 'DireccionesController::crear');
 $routes->post('direcciones/guardar', 'DireccionesController::guardar');
 $routes->get('direcciones/eliminar/(:num)', 'DireccionesController::eliminar/$1');
 $routes->post('direcciones/eliminar/(:num)', 'DireccionesController::eliminar/$1');
+$routes->post('perfil/actualizar', 'ProfileController::actualizarPerfil');
