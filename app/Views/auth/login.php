@@ -14,17 +14,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <!-- Estilo personalizado -->
   <link rel="stylesheet" href="/proyecto_x_ingrid/public/css/Miestilo.css">
-  <style>
-    body {
-      min-height: 100vh;
-      background: linear-gradient(120deg, #e63946 0%, #f4a261 100%);
-      display: flex;
-      flex-direction: column;
-    }
-  </style>
 </head>
 
-<body>
+<body class="login-register">
   <?= $this->include('templates/header') ?>
   <div class="login-container">
     <div class="col-12 col-sm-10 col-md-7 col-lg-5 col-xl-4">

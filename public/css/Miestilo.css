@@ -139,6 +139,86 @@ h1, h2, h3, h4, h5, h6 {
         padding: 1.5rem 0.5rem 1.5rem 0.5rem;
       }
     }
+    /* ESTILOS PARA EL REGISTER*/
+    .register-container {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .register-card {
+      border-radius: 18px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      background: rgba(255,255,255,0.97);
+      padding: 2.5rem 2rem 2rem 2rem;
+      position: relative;
+      overflow: hidden;
+      animation: fadeIn 0.8s;
+    }
+    .register-card .brand-logo {
+      font-family: 'Pacifico', cursive;
+      font-size: 2.2rem;
+      color: #e63946;
+      text-align: center;
+      margin-bottom: 0.5rem;
+      letter-spacing: 1px;
+    }
+    .register-card .brand-subtitle {
+      font-size: 1.05rem;
+      color: #432818;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-family: 'Poppins', sans-serif;
+    }
+    .register-card .form-control {
+      border-radius: 8px;
+      font-size: 1.08rem;
+      padding-left: 2.5rem;
+    }
+    .register-card .input-icon {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #e63946;
+      font-size: 1.1rem;
+      opacity: 0.85;
+    }
+    .register-card .form-group {
+      position: relative;
+      margin-bottom: 1.4rem;
+    }
+    .register-card .btn-primary {
+      background: linear-gradient(90deg, #e63946 60%, #f4a261 100%);
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      box-shadow: 0 2px 8px rgba(230,57,70,0.08);
+      transition: background 0.2s;
+    }
+    .register-card .btn-primary:hover {
+      background: linear-gradient(90deg, #f4a261 0%, #e63946 100%);
+    }
+    .register-card .login-link {
+      color: #e63946;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .register-card .login-link:hover {
+      color: #432818;
+      text-decoration: underline;
+    }
+    .alert {
+      border-radius: 8px;
+      font-size: 0.98rem;
+    }
+    @media (max-width: 576px) {
+      .register-card {
+        padding: 1.5rem 0.5rem 1.5rem 0.5rem;
+      }
+    }
 /* Header */
 .navbar {
   background-color: var(--accent);
