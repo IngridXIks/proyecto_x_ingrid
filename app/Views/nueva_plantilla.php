@@ -4,12 +4,15 @@
   <meta charset="UTF-8">
   <title>Deliburger - Hamburguesas Artesanales</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Google Fonts -->
+  
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Righteous&display=swap" rel="stylesheet">
+  
   <!-- Estilo personalizado -->
   <link rel="stylesheet" href="/proyecto_x_ingrid/public/css/Miestilo.css">
 </head>
@@ -17,7 +20,6 @@
 <body>
   <?= $this->include('templates/header') ?>
 
-  <!-- Hero Section -->
   <section class="hero-section">
     <div class="container">
       <div class="hero-content">
@@ -28,7 +30,7 @@
     </div>
   </section>
 
-  <!-- Features Section -->
+
   <section class="py-5">
     <div class="container py-5">
       <div class="row g-4">
@@ -63,7 +65,7 @@
     </div>
   </section>
 
-  <!-- Menu Section -->
+
   <section id="menu" class="py-5 bg-light">
     <div class="container py-5">
       <h2 class="section-title text-center">¡Algunas Bombas!</h2>
@@ -121,7 +123,7 @@
     </div>
   </section>
 
-  <!-- Testimonials -->
+
   <section class="py-5">
     <div class="container py-5">
       <h2 class="section-title text-center">Lo que dicen nuestros clientes</h2>
@@ -175,7 +177,7 @@
     </div>
   </section>
 
-  <!-- CTA Section -->
+
   <section class="cta-section">
     <div class="pattern"></div>
     <div class="container position-relative">
@@ -184,10 +186,10 @@
           <h2 class="cta-title">¿Listo para probar la mejor hamburguesa?</h2>
           <p class="lead mb-5">Descarga nuestra app y obtén un 10% de descuento en tu primer pedido.</p>
           <div class="d-flex justify-content-center gap-3">
-            <a href="#" class="btn btn-light btn-lg px-4">
+            <a href="https://www.apple.com/la/app-store/" class="btn btn-light btn-lg px-4">
               <i class="fab fa-apple me-2"></i> App Store
             </a>
-            <a href="#" class="btn btn-light btn-lg px-4">
+            <a href="https://play.google.com/store/games?hl=es_AR" class="btn btn-light btn-lg px-4">
               <i class="fab fa-google-play me-2"></i> Play Store
             </a>
           </div>

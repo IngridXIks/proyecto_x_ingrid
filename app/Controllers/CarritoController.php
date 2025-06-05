@@ -87,9 +87,9 @@ class CarritoController extends BaseController
 
     // Buscar el ítem en el carrito
     $itemExistente = $this->carritoModel
-                         ->where('id_usuario', $id_usuario)
-                         ->where('id_producto', $id_producto)
-                         ->first();
+                        ->where('id_usuario', $id_usuario)
+                        ->where('id_producto', $id_producto)
+                        ->first();
 
     if ($itemExistente) {
         // Actualizar la cantidad
@@ -114,4 +114,82 @@ class CarritoController extends BaseController
     {
         return view('back/carrito/pagar'); // Placeholder
     }
+    public function procesar_pago()
+{
+    if (!$this->request->isAJAX()) {
+        return $this->response->setStatusCode(403)->setJSON([
+            'success' => false,
+            'message' => 'Acceso no permitido'
+        ]);
+    }
+
+    $usuarioId = session()->get('id_usuario');
+    if (!$usuarioId) {
+        return $this->response->setJSON([
+            'success' => false,
+            'message' => 'Debes iniciar sesión para pagar'
+        ]);
+    }
+
+    // Obtener carrito desde la base de datos
+    $carrito = $this->carritoModel->getCarritoPorUsuario($usuarioId);
+
+    if (empty($carrito)) {
+        return $this->response->setJSON([
+            'success' => false,
+            'message' => 'El carrito está vacío'
+        ]);
+    }
+
+    // Calcular total
+    $total = array_reduce($carrito, function($sum, $item) {
+        return $sum + ($item['precio'] * $item['cantidad']);
+    }, 0);
+
+    // Modelos
+    $facturaModel = new \App\Models\FacturaModel();
+    $detalleModel = new \App\Models\DetalleFacturaModel();
+
+    $db = \Config\Database::connect();
+    $db->transStart();
+
+    try {
+        // 1. Crear factura
+        $facturaId = $facturaModel->insert([
+            'usuario_id' => $usuarioId,
+            'fecha' => date('Y-m-d H:i:s'),
+            'total' => $total,
+            'estado' => 'completado'
+        ]);
+
+        // 2. Crear detalles
+        foreach ($carrito as $item) {
+            $detalleModel->insert([
+                'factura_id' => $facturaId,
+                'producto_id' => $item['id_producto'],
+                'cantidad' => $item['cantidad'],
+                'precio_unitario' => $item['precio'],
+                'subtotal' => $item['precio'] * $item['cantidad']
+            ]);
+        }
+
+        // 3. Vaciar carrito
+        $this->carritoModel->where('id_usuario', $usuarioId)->delete();
+
+        $db->transComplete();
+
+        return $this->response->setJSON([
+            'success' => true,
+            'factura_id' => $facturaId,
+            'message' => 'Factura generada correctamente'
+        ]);
+
+    } catch (\Exception $e) {
+        $db->transRollback();
+        return $this->response->setJSON([
+            'success' => false,
+            'message' => 'Error al procesar: ' . $e->getMessage()
+        ]);
+    }
+}
 }

@@ -4,15 +4,14 @@
   <meta charset="UTF-8">
   <title>Carrito - Deliburger</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Bootstrap -->
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- Estilo personalizado -->
+ 
     <link rel="stylesheet" href="/proyecto_x_ingrid/public/css/Miestilo.css">
 </head>
 
@@ -134,15 +133,16 @@
             <a href="<?= base_url('/hamburguesas') ?>" class="btn btn-cart btn-outline-primary">
                 <i class="fas fa-chevron-left"></i> Seguir Comprando
             </a>
-            <a href="<?= base_url('/carrito/pagar') ?>" class="btn btn-cart btn-checkout">
-                <i class="fas fa-credit-card"></i> Ir a Pagar
-            </a>
+            <button class="btn btn-cart btn-checkout" id="pagarBtn">
+                <i class="fas fa-credit-card"></i> Pagar
+            </button>
         </div>
     <?php endif; ?>
 </div>
 
 <?= $this->include('templates/footer') ?>
 
+<script>
 <script>
 // Animación al vaciar el carrito
 document.querySelectorAll('.btn-remove').forEach(btn => {
@@ -151,12 +151,74 @@ document.querySelectorAll('.btn-remove').forEach(btn => {
         item.style.animation = 'fadeOut 0.5s forwards';
         setTimeout(() => {
             item.remove();
-            // Actualizar total u otras operaciones necesarias
         }, 500);
     });
 });
-
 </script>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+document.getElementById('pagarBtn').addEventListener('click', function() {
+    <?php if (!empty($carrito)): ?>
+        Swal.fire({
+            title: '¿Confirmar compra?',
+            text: 'Estás a punto de realizar el pago de $<?= number_format($total, 2) ?>',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sí, pagar',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Mostrar carga mientras se procesa
+                Swal.fire({
+                    title: 'Procesando pago',
+                    html: 'Por favor espera...',
+                    timerProgressBar: true,
+                    didOpen: () => {
+                        Swal.showLoading()
+                    },
+                    allowOutsideClick: false
+                });
+                
+                // Realizar petición AJAX
+                fetch('<?= base_url('/carrito/procesar_pago') ?>', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    body: JSON.stringify({
+                        productos: <?= json_encode($carrito) ?>,
+                        total: <?= $total ?>
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    Swal.close();
+                    if (data.success) {
+                        // Mostrar confirmación y recargar la página
+                        Swal.fire({
+                            title: '¡Compra exitosa!',
+                            text: 'Tu pedido #' + data.factura_id + ' ha sido procesado',
+                            icon: 'success',
+                            confirmButtonText: 'Aceptar'
+                        }).then(() => {
+                            // Recargar la página para vaciar el carrito
+                            window.location.reload();
+                        });
+                    } else {
+                        Swal.fire('Error', data.message || 'Ocurrió un error', 'error');
+                    }
+                })
+                .catch(error => {
+                    Swal.close();
+                    Swal.fire('Error', 'No se pudo conectar con el servidor', 'error');
+                });
+            }
+        });
+    <?php endif; ?>
+});
+</script>
 </body>
 </html>

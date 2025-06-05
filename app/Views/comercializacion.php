@@ -7,15 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Descubre cómo llevamos el sabor de Deliburger hasta tu puerta con nuestros múltiples canales de distribución">
     
-    <!-- Bootstrap -->
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- Estilo personalizado -->
+ 
     <link rel="stylesheet" href="/proyecto_x_ingrid/public/css/Miestilo.css">
 </head>
 
@@ -23,7 +22,6 @@
     <!-- HEADER -->
     <?= $this->include('templates/header') ?>
 
-    <!-- Hero Section -->
     <section class="commercial-hero">
         <div class="container">
             <h1 class="commercial-title">Nuestros Canales</h1>
@@ -70,7 +68,6 @@
                         <div class="card-body text-center">
                             <h3 class="card-title h4">Delivery Express</h3>
                             <p class="card-text">Recibe en tu hogar u oficina con nuestro servicio de entrega rápida o a través de Rappi y PedidosYa.</p>
-                          
                         </div>
                     </div>
                 </div>

@@ -5,16 +5,12 @@
     <meta charset="UTF-8">
     <title>Información de Contacto - Deliburger</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <!-- Google Fonts -->
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-  <!-- Estilo personalizado -->
-  <link rel="stylesheet" href="/proyecto_x_ingrid/public/css/Miestilo.css">
+    <link rel="stylesheet" href="<?= base_url('public/css/Miestilo.css') ?>">
 </head>
 
 <body class="pagina-legal">
@@ -62,19 +58,33 @@
             <form class="contact-form" action="<?= base_url('consulta/enviar') ?>" method="post">
                 <?= csrf_field() ?>
                 
-                <div class="form-group">
-                    <label for="nombre">Tu nombre</label>
-                    <input type="text" name="nombre" id="nombre" class="form-control" required value="<?= set_value('nombre') ?>">
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">Correo electrónico</label>
-                    <input type="email" name="email" id="email" class="form-control" required value="<?= set_value('email') ?>">
-                </div>
+                <?php if (session('logged_in')): ?>
+                    <!-- Usuario logueado - campos ocultos con datos del perfil -->
+                    <input type="hidden" name="nombre" value="<?= esc(session('nombre')) ?>">
+                    <input type="hidden" name="email" value="<?= esc(session('email')) ?>">
+                    
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle"></i> Estás enviando como: 
+                        <strong><?= esc(session('nombre')) ?></strong> (<?= esc(session('email')) ?>)
+                    </div>
+                <?php else: ?>
+                    <!-- Usuario no logueado - mostrar campos normales -->
+                    <div class="form-group">
+                        <label for="nombre">Tu nombre</label>
+                        <input type="text" name="nombre" id="nombre" class="form-control" required 
+                               value="<?= set_value('nombre', old('nombre') ?? '') ?>">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" name="email" id="email" class="form-control" required
+                               value="<?= set_value('email', old('email') ?? '') ?>">
+                    </div>
+                <?php endif; ?>
                 
                 <div class="form-group">
                     <label for="mensaje">Mensaje</label>
-                    <textarea name="mensaje" id="mensaje" class="form-control" rows="5" required><?= set_value('mensaje') ?></textarea>
+                    <textarea name="mensaje" id="mensaje" class="form-control" rows="5" required><?= set_value('mensaje', old('mensaje') ?? '') ?></textarea>
                 </div>
                 
                 <button type="submit" class="btn btn-contact-submit">

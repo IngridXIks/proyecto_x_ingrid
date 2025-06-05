@@ -17,7 +17,6 @@
 <body>
   <?= $this->include('templates/header') ?>
 
-  <!-- Hero Section -->
   <section class="hero-section-locales">
     <div class="container h-100">
       <div class="row h-100 align-items-center">
@@ -29,7 +28,6 @@
     </div>
   </section>
 
-  <!-- Main Content -->
   <section class="py-5 bg-light">
     <div class="container py-5">
       <div class="text-center mb-5">
@@ -55,7 +53,7 @@
               <div class="local-address">
                 <h5><i class="fas fa-map-pin me-2"></i>Dirección</h5>
                 <p>Av. 25 de Mayo 123, Esquina, Corrientes</p>
-                <a href="https://maps.app.goo.gl/example" class="btn btn-primary mt-2" target="_blank">
+                <a href="https://www.google.com/maps/place/Av.+25+de+Mayo,+Esquina,+Corrientes/data=!4m2!3m1!1s0x944c8a5020e3bc3b:0xb87542d52556e2e7?sa=X&ved=1t:242&ictx=111" class="btn btn-primary mt-2" target="_blank">
                   <i class="fas fa-directions me-2"></i>Cómo llegar
                 </a>
               </div>
@@ -80,7 +78,7 @@
               <div class="local-address">
                 <h5><i class="fas fa-map-pin me-2"></i>Dirección</h5>
                 <p>Junín 456, Corrientes Capital</p>
-                <a href="https://maps.app.goo.gl/example" class="btn btn-primary mt-2" target="_blank">
+                <a href="https://www.google.com/maps/place/Junin+456,+W3400AVK+Corrientes/data=!4m2!3m1!1s0x94456cba35e80aaf:0x3b4f426439f2732d?sa=X&ved=1t:242&ictx=111" class="btn btn-primary mt-2" target="_blank">
                   <i class="fas fa-directions me-2"></i>Cómo llegar
                 </a>
               </div>
@@ -89,7 +87,6 @@
         </div>
       </div>
 
-      <!-- Additional Info -->
       <div class="row mt-5">
         <div class="col-lg-8 mx-auto text-center">
           <div class="delivery-info p-4 rounded">

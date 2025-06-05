@@ -1,6 +1,6 @@
 <!-- Pie de página -->
-<footer class="footer mt-5 bg-dark text-white py-4">
-    <link rel="stylesheet" href="<?= base_url('css/Miestilo.css') ?>">
+<footer class="bg-dark text-white py-4 mt-auto">
+  
     <div class="container text-center">
         <!-- Logo central -->
         <section class="footer-logo">
@@ -22,7 +22,4 @@
             <small>© 2025 Deliburgers. Todos los derechos reservados.</small>
         </div>
     </div>
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </footer>

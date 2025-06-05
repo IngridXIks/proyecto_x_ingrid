@@ -41,3 +41,7 @@ $routes->post('carrito/agregar', 'CarritoController::agregar');
 $routes->post('carrito/eliminar', 'CarritoController::eliminar');
 $routes->get('carrito/pagar', 'CarritoController::pagar');
 $routes->post('carrito/actualizar', 'CarritoController::actualizar');
+
+$routes->post('carrito/procesar_pago', 'CarritoController::procesar_pago');
+$routes->get('mis-pedidos', 'PedidosController::misPedidos');
+$routes->get('mis-pedidos/(:num)', 'PedidosController::detallePedido/$1');

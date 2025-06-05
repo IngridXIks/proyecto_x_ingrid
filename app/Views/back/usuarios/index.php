@@ -1,27 +1,25 @@
-<?php helper('form'); ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title><?= esc($title) ?> - Deliburger</title>
+    <title>MI USUARIO - Deliburger</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Administra tu perfil y direcciones en Deliburger">
     
-    <!-- CSS -->
-    <link rel="stylesheet" href="/proyecto_x_ingrid/public/css/Miestilo.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Google Fonts -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+ 
+    <link rel="stylesheet" href="/proyecto_x_ingrid/public/css/Miestilo.css">
 </head>
 
 <body>
     <!-- HEADER -->
     <?= $this->include('templates/header') ?>
 
-    <!-- Hero Section -->
     <section class="profile-hero">
         <div class="container">
             <h1 class="profile-title">Mi Perfil</h1>
@@ -33,7 +31,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <!-- Información del Usuario -->
-                <div class="profile-card card shadow-sm mb-5">
+                <div class="profile-card card shadow-sm mb-4">
                     <div class="card-header bg-primary text-white">
                         <h2 class="h4 mb-0"><i class="fas fa-user-circle me-2"></i>Información Personal</h2>
                     </div>
@@ -59,13 +57,13 @@
                 </div>
 
                 <!-- Direcciones -->
-                <div class="profile-card card shadow-sm">
-                    <div class="card-header bg-primary text-white">
+                <div class="profile-card card shadow-sm mb-4">
+                    <div class="card-header bg-primary text-white mb-4">
                         <h2 class="h4 mb-0"><i class="fas fa-map-marker-alt me-2"></i>Mis Direcciones</h2>
                     </div>
                     <div class="card-body">
                         <?php if (!empty($direcciones)): ?>
-                            <div class="row g-3">
+                            <div class="row g-3 mb-4">
                                 <?php foreach ($direcciones as $direccion): ?>
                                     <div class="col-md-6">
                                         <div class="address-card card h-100">
@@ -97,9 +95,11 @@
                             </div>
                         <?php endif ?>
 
-                        <button class="btn btn-primary mt-4" data-bs-toggle="modal" data-bs-target="#modalAgregarDireccion">
+                        <div class="text-center mt-3">
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAgregarDireccion">
                             <i class="fas fa-plus me-1"></i> Agregar Nueva Dirección
                         </button>
+                    </div>
                     </div>
                 </div>
             </div>
