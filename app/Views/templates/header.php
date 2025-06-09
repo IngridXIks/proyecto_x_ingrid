@@ -31,7 +31,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?= base_url('/hamburguesas') ?>">
-                        <i class="bi bi-egg-fried me-1"></i>Hamburguesas
+                        <i class = "fas fa-hamburger me-1"></i>Hamburguesas
                     </a>
                 </li>
                 <li class="nav-item">

@@ -45,3 +45,12 @@ $routes->post('carrito/actualizar', 'CarritoController::actualizar');
 $routes->post('carrito/procesar_pago', 'CarritoController::procesar_pago');
 $routes->get('mis-pedidos', 'PedidosController::misPedidos');
 $routes->get('mis-pedidos/(:num)', 'PedidosController::detallePedido/$1');
+
+$routes->group('administrador', ['filter' => 'auth'], function($routes) {
+    $routes->get('/', 'AdministradorController::index');
+    $routes->match(['get', 'post'], 'create', 'AdministradorController::create');
+    $routes->match(['get', 'post'], 'edit/(:num)', 'AdministradorController::edit/$1');
+    $routes->get('delete/(:num)', 'AdministradorController::delete/$1');
+    $routes->get('show/(:num)', 'AdministradorController::show/$1');
+});
+
