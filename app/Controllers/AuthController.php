@@ -33,40 +33,37 @@ class AuthController extends Controller
     }
 
     // Procesar login
-       public function processLogin()
-        {
-            $email = trim(strtolower($this->request->getPost('email')));
-            $password = $this->request->getPost('password');
+      public function processLogin()
+{
+    $email = trim(strtolower($this->request->getPost('email')));
+    $password = $this->request->getPost('password');
 
-            // Buscar al usuario por email
-            $user = $this->usuarioModel
-                ->where('email', $email)
-                ->first();
+    // Buscar al usuario por email
+    $user = $this->usuarioModel->where('email', $email)->first();
 
-            if (!$user) {
-                return redirect()->back()
-                                ->withInput()
-                                ->with('error', 'Credenciales inválidas');
-            }
-            // Verificar contraseña
-            if (!password_verify($password, $user['password'])) {
-                return redirect()->back()
-                                ->withInput()
-                                ->with('error', 'Credenciales inválidas');
-            }
+    if (!$user || !password_verify($password, $user['password'])) {
+        return redirect()->back()
+                        ->withInput()
+                        ->with('error', 'Credenciales inválidas');
+    }
 
-            // Guardar datos en sesión
-            session()->set([
-                'id_usuario' => $user['id_usuario'],
-                'nombre'     => $user['nombre'],
-                'email'      => $user['email'],
-                'celular'    => $user['celular'],
-                'logged_in'  => true
-            ]);
+    // Guardar datos en sesión
+    session()->set([
+        'id_usuario' => $user['id_usuario'],
+        'nombre'     => $user['nombre'],
+        'email'      => $user['email'],
+        'celular'    => $user['celular'],
+        'id_perfiles'=> $user['id_perfiles'], // <- importante
+        'logged_in'  => true
+    ]);
 
-            return redirect()->to('/'); // o '/' si preferís ir a home
-        }
-
+    // Redirigir según el perfil
+    if ($user['id_perfiles'] == 1) {
+        return redirect()->to('/administrador'); // Panel admin
+    } else {
+        return redirect()->to('/'); // Inicio normal
+    }
+}
 
     // Mostrar formulario de registro
     public function register()

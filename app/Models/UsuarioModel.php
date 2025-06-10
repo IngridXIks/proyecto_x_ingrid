@@ -8,7 +8,7 @@ class UsuarioModel extends Model
 {
     protected $table = 'usuarios';
     protected $primaryKey = 'id_usuario';
-    protected $allowedFields = ['nombre', 'email', 'password', 'celular', 'id_direccion', 'activo'];
+    protected $allowedFields = ['nombre', 'email','id_perfiles', 'password', 'celular', 'id_direccion', 'activo'];
     protected $useTimestamps = true;
     protected $beforeInsert = ['hashPassword'];
     protected $beforeUpdate = ['hashPassword'];
@@ -29,4 +29,13 @@ class UsuarioModel extends Model
                    ->where('activo', 1)
                    ->first();
     }
+    
+    public function getUserWithProfile($email)
+{
+    return $this->select('usuarios.*, perfiles.descripcion as perfil')
+        ->join('perfiles', 'perfiles.id_perfiles = usuarios.id_perfiles')
+        ->where('usuarios.email', $email)
+        ->first();
+}
+
 }

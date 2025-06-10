@@ -27,8 +27,8 @@ class Filters extends BaseConfig
         'secureheaders' => SecureHeaders::class,
         'pagecache'     => PageCache::class,
         'performance'   => PerformanceMetrics::class,
-        'auth'          => \App\Filters\AuthFilter::class,  // Añade tu filtro de autenticación
-        'authAdmin'     => \App\Filters\AuthAdminFilter::class,  // Filtro para admin si lo necesitas
+        'auth'          => \App\Filters\AuthFilter::class,  
+        'authadmin'     => \App\Filters\AuthAdminFilter::class,
     ];
 
     /**

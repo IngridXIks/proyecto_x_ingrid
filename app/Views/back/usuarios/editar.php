@@ -25,6 +25,12 @@
 
     <label>Nueva contraseña (opcional):</label><br>
     <input type="password" name="password"><br><br>
+    
+    <label>Perfil:</label><br>
+    <select name="id_perfiles" required>
+    <option value="1" <?= old('id_perfiles', $usuario['id_perfiles']) == 1 ? 'selected' : '' ?>>Administrador</option>
+    <option value="2" <?= old('id_perfiles', $usuario['id_perfiles']) == 2 ? 'selected' : '' ?>>Cliente</option>
+</select><br><br>
 
     <button type="submit">Actualizar</button>
     <a href="<?= site_url('administrador') ?>">Cancelar</a>

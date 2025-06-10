@@ -43,6 +43,7 @@ class AdministradorController extends BaseController
         $rules = [
             'nombre'       => 'required|min_length[3]',
             'email'        => 'required|valid_email|is_unique[usuarios.email]',
+            'id_perfiles' => 'required|integer|in_list[1,2]',
             'password'     => 'required|min_length[6]',
             'celular'      => 'permit_empty|min_length[8]|max_length[15]',
             'id_direccion' => 'permit_empty|integer',
