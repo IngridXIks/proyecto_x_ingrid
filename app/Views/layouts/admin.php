@@ -18,7 +18,7 @@
   <?= $this->include('templates/header') ?>
 
 <nav class="navbar navbar-dark bg-dark p-3">
-    <a class="navbar-brand" href="<?= site_url('usuario') ?>">Admin Panel</a>
+    <a class="navbar-brand" >Admin Panel</a>
 </nav>
 
 <div class="container mt-4">
