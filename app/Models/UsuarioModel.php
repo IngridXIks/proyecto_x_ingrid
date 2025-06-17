@@ -26,8 +26,8 @@ class UsuarioModel extends Model
     public function getUserByEmail($email)
     {
         return $this->where('email', $email)
-                   ->where('activo', 1)
-                   ->first();
+                ->where('activo', 1)
+                ->first();
     }
     
     public function getUserWithProfile($email)

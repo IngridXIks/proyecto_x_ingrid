@@ -3,25 +3,20 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Detalle de Pedido - Deliburger</title>
+    <title>DETALLES - Deliburger</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Detalles de tu pedido en Deliburger">
-    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
- 
     <link rel="stylesheet" href="/proyecto_x_ingrid/public/css/Miestilo.css">
 </head>
-
 <body>
     <!-- HEADER -->
     <?= $this->include('templates/header') ?>
 
-    <div class="container my-5">
+    <main class="container my-5">
         <div class="detalle-container">
             <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap">
                 <h1 class="detalle-title"><i class="fas fa-receipt me-2"></i><?= $titulo ?></h1>
@@ -63,7 +58,6 @@
 
             <!-- Lista de productos -->
             <h4 class="mb-4"><i class="fas fa-list-ul me-2"></i>Productos</h4>
-            
             <div class="row">
                 <?php foreach ($detalles as $detalle): ?>
                     <div class="col-12 mb-3">
@@ -115,7 +109,7 @@
                 </a>
             </div>
         </div>
-    </div>
+    </main>
 
     <?= $this->include('templates/footer') ?>
 </body>

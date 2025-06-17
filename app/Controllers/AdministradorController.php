@@ -4,6 +4,9 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\UsuarioModel;
+use App\Models\FacturaModel;
+use App\Models\DetalleFacturaModel;
+use App\Models\ProductoModel;
 
 class AdministradorController extends BaseController
 {
@@ -18,8 +21,13 @@ class AdministradorController extends BaseController
     public function index()
     {
         $data['usuarios'] = $this->usuarioModel->where('activo', 1)->findAll();
-        return view('back/usuarios/listado', $data);
+        return view('back/usuarios/panel_admin', $data);
+    }
 
+    public function lista()
+    {
+        $data['usuarios'] = $this->usuarioModel->where('activo', 1)->findAll();
+        return view('back/usuarios/listado', $data);
     }
 
     // Mostrar un solo usuario
@@ -35,96 +43,94 @@ class AdministradorController extends BaseController
     }
 
     // Crear usuario
-   public function create()
-{
-    helper(['form']);
+    public function create()
+    {
+        helper(['form']);
 
-    if ($this->request->getMethod() === 'post') {
-        $rules = [
-            'nombre'       => 'required|min_length[3]',
-            'email'        => 'required|valid_email|is_unique[usuarios.email]',
-            'id_perfiles' => 'required|integer|in_list[1,2]',
-            'password'     => 'required|min_length[6]',
-            'celular'      => 'permit_empty|min_length[8]|max_length[15]',
-            'id_direccion' => 'permit_empty|integer',
-        ];
+        if ($this->request->getMethod() === 'post') {
+            $rules = [
+                'nombre'       => 'required|min_length[3]',
+                'email'        => 'required|valid_email|is_unique[usuarios.email]',
+                'id_perfiles' => 'required|integer|in_list[1,2]',
+                'password'     => 'required|min_length[6]',
+                'celular'      => 'permit_empty|min_length[8]|max_length[15]',
+                'id_direccion' => 'permit_empty|integer',
+            ];
 
-        if (!$this->validate($rules)) {
-            return view('back/usuarios/crear', [
-                'validation' => $this->validator
+            if (!$this->validate($rules)) {
+                return view('back/usuarios/crear', [
+                    'validation' => $this->validator
+                ]);
+            }
+
+            $data = $this->request->getPost([
+                'nombre',
+                'email',
+                'password',
+                'celular',
+                'id_direccion',
             ]);
+
+            $data['activo'] = 1;
+
+            $this->usuarioModel->save($data);
+            return redirect()->to('/administrador')->with('mensaje', 'Usuario creado correctamente');
         }
 
-        $data = $this->request->getPost([
-            'nombre',
-            'email',
-            'password',
-            'celular',
-            'id_direccion',
-        ]);
-
-        $data['activo'] = 1;
-
-        $this->usuarioModel->save($data);
-        return redirect()->to('/administrador')->with('mensaje', 'Usuario creado correctamente');
+        return view('back/usuarios/crear');
     }
-
-    return view('back/usuarios/crear');
-}
-
 
     // Editar usuario
     public function edit($id)
     {
-    helper(['form']);
-    $usuario = $this->usuarioModel->find($id);
+        helper(['form']);
+        $usuario = $this->usuarioModel->find($id);
 
-    if (!$usuario || !$usuario['activo']) {
-        throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Usuario no encontrado");
-    }
-
-    if ($this->request->getMethod() === 'post') {
-        $email = $this->request->getPost('email');
-
-        $rules = [
-            'nombre'       => 'required|min_length[3]',
-            'email'        => 'required|valid_email|is_unique[usuarios.email,id_usuario,'.$id.']',
-            'celular'      => 'permit_empty|min_length[8]|max_length[15]',
-            'id_direccion' => 'permit_empty|integer',
-        ];
-
-        // Si se va a cambiar contraseña
-        if ($this->request->getPost('password')) {
-            $rules['password'] = 'min_length[6]';
+        if (!$usuario || !$usuario['activo']) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Usuario no encontrado");
         }
 
-        if (!$this->validate($rules)) {
-            return view('back/usuarios/editar', [
-                'validation' => $this->validator,
-                'usuario' => $usuario
+        if ($this->request->getMethod() === 'post') {
+            $email = $this->request->getPost('email');
+
+            $rules = [
+                'nombre'       => 'required|min_length[3]',
+                'email'        => 'required|valid_email|is_unique[usuarios.email,id_usuario,'.$id.']',
+                'celular'      => 'permit_empty|min_length[8]|max_length[15]',
+                'id_direccion' => 'permit_empty|integer',
+            ];
+
+            // Si se va a cambiar contraseña
+            if ($this->request->getPost('password')) {
+                $rules['password'] = 'min_length[6]';
+            }
+
+            if (!$this->validate($rules)) {
+                return view('back/usuarios/editar', [
+                    'validation' => $this->validator,
+                    'usuario' => $usuario
+                ]);
+            }
+
+            $data = $this->request->getPost([
+                'nombre',
+                'email',
+                'celular',
+                'id_direccion'
             ]);
+
+            if ($this->request->getPost('password')) {
+                $data['password'] = $this->request->getPost('password');
+            }
+
+            $data['id_usuario'] = $id;
+
+            $this->usuarioModel->save($data);
+            return redirect()->to('/administrador')->with('mensaje', 'Usuario actualizado');
         }
 
-        $data = $this->request->getPost([
-            'nombre',
-            'email',
-            'celular',
-            'id_direccion'
-        ]);
-
-        if ($this->request->getPost('password')) {
-            $data['password'] = $this->request->getPost('password');
-        }
-
-        $data['id_usuario'] = $id;
-
-        $this->usuarioModel->save($data);
-        return redirect()->to('/administrador')->with('mensaje', 'Usuario actualizado');
+        return view('back/usuarios/editar', ['usuario' => $usuario]);
     }
-
-    return view('back/usuarios/editar', ['usuario' => $usuario]);
-}
-
 
     // Eliminar usuario (borrado lógico)
     public function delete($id)
@@ -139,25 +145,143 @@ class AdministradorController extends BaseController
         return redirect()->to('/administrador')->with('mensaje', 'Usuario eliminado correctamente');
     }
 
-    // (Opcional) Función de login básica usando tu método getUserByEmail
-    /*
-    public function login()
+    public function pedidos($id_usuario)
     {
-        if ($this->request->getMethod() === 'post') {
-            $email = $this->request->getPost('email');
-            $password = $this->request->getPost('password');
-
-            $usuario = $this->usuarioModel->getUserByEmail($email);
-
-            if ($usuario && password_verify($password, $usuario['password'])) {
-                // Aquí iniciarías sesión
-                return redirect()->to('/usuario');
-            } else {
-                return redirect()->back()->with('error', 'Credenciales inválidas');
-            }
+        $usuario = $this->usuarioModel->find($id_usuario);
+        if (!$usuario || !$usuario['activo']) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Usuario no encontrado");
         }
 
-        return view('usuarios/login');
+        $pedidoModel = new FacturaModel();
+        $pedidos = $pedidoModel->where('usuario_id', $id_usuario)->orderBy('id', 'DESC')->findAll();
+
+        return view('back/usuarios/pedidos', [
+            'usuario' => $usuario,
+            'pedidos' => $pedidos
+        ]);
     }
-    */
+
+    public function pedido_detalle($id_pedido)
+    {
+        $pedidoModel = new FacturaModel();
+        $detalleModel = new DetalleFacturaModel();
+
+        $pedido = $pedidoModel->find($id_pedido);
+        if (!$pedido) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Pedido no encontrado");
+        }
+
+        // JOIN usando el modelo, no builder, y usando productos.id
+        $detalles = $detalleModel
+            ->select('detalle_factura.*, productos.nombre as nombre_producto')
+            ->join('productos', 'productos.id = detalle_factura.producto_id')
+            ->where('detalle_factura.factura_id', $id_pedido)
+            ->findAll();
+
+        return view('back/usuarios/pedido_detalle', [
+            'pedido' => $pedido,
+            'detalles' => $detalles
+        ]);
+    }
+
+    // ----------- CRUD de productos -----------
+
+    public function productos()
+    {
+        $productoModel = new ProductoModel();
+        $productos = $productoModel->findAll();
+        return view('back/productos/listado', ['productos' => $productos]);
+    }
+
+    // Formulario para crear producto
+    public function producto_create()
+    {
+        return view('back/productos/crear');
+    }
+
+    // Guardar producto nuevo
+    public function producto_store()
+    {
+        $productoModel = new ProductoModel();
+        $data = [
+            'nombre' => $this->request->getPost('nombre'),
+            'descripcion' => $this->request->getPost('descripcion'),
+            'precio' => $this->request->getPost('precio'),
+            'activo' => $this->request->getPost('activo') ? 1 : 0,
+        ];
+
+        // Manejo de imagen
+        $img = $this->request->getFile('imagen');
+        if ($img && $img->isValid()) {
+            $imgName = $img->getClientName(); // o getRandomName() si prefieres nombres únicos
+            $img->move(ROOTPATH . 'public/img/hamburguesas', $imgName);
+            $data['imagen'] = $imgName;
+        }
+
+        $productoModel->insert($data);
+        return redirect()->to('administrador/productos')->with('mensaje', 'Producto creado');
+    }
+
+    // Formulario para editar producto
+    public function producto_edit($id)
+    {
+        $productoModel = new ProductoModel();
+        $producto = $productoModel->find($id);
+        if (!$producto) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Producto no encontrado");
+        }
+        return view('back/productos/editar', ['producto' => $producto]);
+    }
+
+    // Actualizar producto
+    public function producto_update($id)
+    {
+        $productoModel = new ProductoModel();
+        $producto = $productoModel->find($id);
+        if (!$producto) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Producto no encontrado");
+        }
+
+        $data = [
+            'nombre' => $this->request->getPost('nombre'),
+            'descripcion' => $this->request->getPost('descripcion'),
+            'precio' => $this->request->getPost('precio'),
+            'activo' => $this->request->getPost('activo') ? 1 : 0,
+        ];
+
+        // Manejo de imagen
+        $img = $this->request->getFile('imagen');
+        if ($img && $img->isValid()) {
+            $imgName = $img->getClientName();
+            $img->move(ROOTPATH . 'public/img/hamburguesas', $imgName);
+            $data['imagen'] = $imgName;
+        }
+
+        $productoModel->update($id, $data);
+        return redirect()->to('administrador/productos')->with('mensaje', 'Producto actualizado');
+    }
+
+    // Activar/desactivar producto
+    public function producto_toggle($id)
+    {
+        $productoModel = new ProductoModel();
+        $producto = $productoModel->find($id);
+        if (!$producto) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Producto no encontrado");
+        }
+        $nuevoEstado = $producto['activo'] ? 0 : 1;
+        $productoModel->update($id, ['activo' => $nuevoEstado]);
+        return redirect()->to('administrador/productos');
+    }
+
+    // Ver producto
+    public function producto_show($id)
+    {
+        $productoModel = new ProductoModel();
+        $producto = $productoModel->find($id);
+        if (!$producto) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Producto no encontrado");
+        }
+        return view('back/productos/show', ['producto' => $producto]);
+    }
 }

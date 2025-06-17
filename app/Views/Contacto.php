@@ -72,13 +72,13 @@
                     <div class="form-group">
                         <label for="nombre">Tu nombre</label>
                         <input type="text" name="nombre" id="nombre" class="form-control" required 
-                               value="<?= set_value('nombre', old('nombre') ?? '') ?>">
+                            value="<?= set_value('nombre', old('nombre') ?? '') ?>">
                     </div>
                     
                     <div class="form-group">
                         <label for="email">Correo electrónico</label>
                         <input type="email" name="email" id="email" class="form-control" required
-                               value="<?= set_value('email', old('email') ?? '') ?>">
+                            value="<?= set_value('email', old('email') ?? '') ?>">
                     </div>
                 <?php endif; ?>
                 

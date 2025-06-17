@@ -48,10 +48,22 @@ $routes->get('mis-pedidos/(:num)', 'PedidosController::detallePedido/$1');
 
 $routes->group('administrador', ['filter' => 'authadmin'], function($routes) {
     $routes->get('/', 'AdministradorController::index');
+    $routes->get('panel_admin', 'AdministradorController::index');
     $routes->match(['get', 'post'], 'create', 'AdministradorController::create');
     $routes->match(['get', 'post'], 'edit/(:num)', 'AdministradorController::edit/$1');
+    $routes->get('listado', 'AdministradorController::lista');
     $routes->get('delete/(:num)', 'AdministradorController::delete/$1');
     $routes->get('show/(:num)', 'AdministradorController::show/$1');
+    $routes->get('pedidos/(:num)', 'AdministradorController::pedidos/$1');
+    $routes->get('pedido_detalle/(:num)', 'AdministradorController::pedido_detalle/$1');
+    // PRODUCTOS
+    $routes->get('productos', 'AdministradorController::productos');
+    $routes->get('productos/crear', 'AdministradorController::producto_create');
+    $routes->post('productos/guardar', 'AdministradorController::producto_store');
+    $routes->get('productos/editar/(:num)', 'AdministradorController::producto_edit/$1');
+    $routes->post('productos/actualizar/(:num)', 'AdministradorController::producto_update/$1');
+    $routes->get('productos/toggle/(:num)', 'AdministradorController::producto_toggle/$1');
+    $routes->get('productos/(:num)', 'AdministradorController::producto_show/$1');
 });
 
 

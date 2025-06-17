@@ -66,7 +66,7 @@
                                 <li><a class="dropdown-item" href="<?= base_url('mis-pedidos') ?>"><i class="bi bi-clock-history me-2"></i>Mis Pedidos</a></li>
 
                                 <?php if (session()->get('id_perfiles') == 1): ?>
-                                    <li><a class="dropdown-item" href="<?= base_url('administrador') ?>"><i class="bi bi-speedometer2 me-2"></i>Panel de Administrador</a></li>
+                                    <li><a class="dropdown-item" href="<?= base_url('/administrador/panel_admin') ?>"><i class="bi bi-speedometer2 me-2"></i>Panel de Administrador</a></li>
                                 <?php endif; ?>
 
                                 <li><hr class="dropdown-divider"></li>
