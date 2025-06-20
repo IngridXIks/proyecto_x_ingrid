@@ -30,7 +30,8 @@
         </div>
         <div class="mb-3">
             <label>Imagen</label>
-            <input type="file" name="imagen" class="form-control">
+            <input type="file" name="imagen" class="form-control" accept=".jpg, .jpeg, .png" required>
+            <small class="form-text text-muted">Formatos aceptados: JPG, JPEG, PNG</small>
         </div>
         <div class="mb-3">
             <label>Activo</label>

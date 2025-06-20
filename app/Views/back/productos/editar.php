@@ -34,7 +34,8 @@
                 <img src="<?= base_url('public/img/hamburguesas/'.$producto['imagen']) ?>" width="100"><br>
             <?php endif; ?>
             <label>Nueva imagen (opcional):</label>
-            <input type="file" name="imagen" class="form-control">
+            <input type="file" name="imagen" class="form-control" accept=".jpg, .jpeg, .png">
+            <small class="form-text text-muted">Formatos aceptados: JPG, JPEG, PNG</small>
         </div>
         <div class="mb-3">
             <label>Activo</label>
