@@ -64,6 +64,9 @@ $routes->group('administrador', ['filter' => 'authadmin'], function($routes) {
     $routes->post('productos/actualizar/(:num)', 'AdministradorController::producto_update/$1');
     $routes->get('productos/toggle/(:num)', 'AdministradorController::producto_toggle/$1');
     $routes->get('productos/(:num)', 'AdministradorController::producto_show/$1');
+    $routes->get('consultas', 'AdministradorController::consultas');
+    $routes->match(['get', 'post'], 'consultas/responder/(:num)', 'AdministradorController::responder_consulta/$1');
+
 });
 
 

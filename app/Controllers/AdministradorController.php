@@ -7,6 +7,8 @@ use App\Models\UsuarioModel;
 use App\Models\FacturaModel;
 use App\Models\DetalleFacturaModel;
 use App\Models\ProductoModel;
+use App\Models\ConsultaModel;
+
 
 class AdministradorController extends BaseController
 {
@@ -184,7 +186,6 @@ class AdministradorController extends BaseController
         ]);
     }
 
-    // ----------- CRUD de productos -----------
 
     public function productos()
     {
@@ -284,4 +285,50 @@ class AdministradorController extends BaseController
         }
         return view('back/productos/show', ['producto' => $producto]);
     }
+
+    public function consultas()
+{
+    $consultaModel = new ConsultaModel();
+    $data['consultas'] = $consultaModel->orderBy('creado_en', 'DESC')->findAll();
+    return view('back/usuarios/consultas/panel_consultas', $data);
+}
+
+public function responder_consulta($id)
+{
+    log_message('debug', 'Entré a responder_consulta con método: ' . $this->request->getMethod());
+
+    $consultaModel = new \App\Models\ConsultaModel();
+    $consulta = $consultaModel->find($id);
+
+    if (!$consulta) {
+        throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Consulta no encontrada");
+    }
+
+    if (strtolower($this->request->getMethod()) === 'post') {
+        log_message('debug', 'Formulario enviado con POST');
+
+        $respuesta = $this->request->getPost('respuesta');
+        log_message('debug', 'Respuesta recibida: ' . $respuesta);
+        if (empty(trim($respuesta))) {
+            return redirect()->back()->with('error', 'La respuesta no puede estar vacía');
+        }
+
+        $updated = $consultaModel->update($id, [
+            'respuesta' => $respuesta,
+            'respondida' => 1,
+            'fecha_respuesta' => date('Y-m-d H:i:s'),
+        ]);
+
+        if (!$updated) {
+            $errors = $consultaModel->errors();
+            log_message('error', 'Error al actualizar consulta: ' . json_encode($errors));
+            return redirect()->back()->with('error', 'Error al guardar la respuesta');
+        }
+
+        return redirect()->to('/administrador/consultas')->with('mensaje', 'Consulta respondida correctamente');
+    }
+
+    return view('back/usuarios/consultas/responder', ['consulta' => $consulta]);
+}
+
 }

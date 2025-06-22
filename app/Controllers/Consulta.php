@@ -33,6 +33,7 @@ class Consulta extends BaseController
             'nombre'  => $this->request->getPost('nombre'),
             'email'   => $this->request->getPost('email'),
             'mensaje' => $this->request->getPost('mensaje'),
+            'respondida'=> 0
         ];
 
         $modelo->insert($datos);

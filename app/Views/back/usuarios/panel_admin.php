@@ -30,6 +30,12 @@
                     Productos
                 </a>
             </div>
+            <div class="col-md-4 mb-4">
+                <a href="<?= site_url('administrador/consultas') ?>" class="btn btn-primary btn-lg w-100 py-4">
+                    <i class="fas fa-question-circle fa-2x mb-2"></i><br>
+                    Consultas
+                </a>
+            </div>
         </div>
     </main>
 
